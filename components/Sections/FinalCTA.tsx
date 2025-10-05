@@ -1,5 +1,7 @@
 import React from "react";
 import { Phone, Mail, Clock } from "lucide-react";
+import Image from "next/image";
+import matrix from "@/public/matrix.jpg";
 
 const FinalCTA = () => {
   return (
@@ -11,28 +13,53 @@ const FinalCTA = () => {
           </h2>
 
           <div className="max-w-3xl mx-auto mb-12">
-            <p className="text-xl mb-6">You have two choices:</p>
+            <p className="text-xl mb-8">You have two choices:</p>
+
+            <div className="flex justify-center mb-8">
+              <Image
+                src={matrix}
+                alt="RED pill or BLUE pill. Your choice!"
+                className="w-full h-auto rounded-lg shadow-2xl"
+              />
+            </div>
 
             <div className="grid md:grid-cols-2 gap-8 text-left">
-              <div className="bg-white/10 p-6 rounded-xl">
-                <h3 className="font-bold text-xl mb-4 text-red-200">
-                  Choice 1:
-                </h3>
-                <p>
-                  Keep your current website (or lack thereof) and continue
-                  losing customers to competitors who simply look more
-                  professional online.
-                </p>
+              {/* RED Pill */}
+              <div className="relative bg-gradient-to-br from-red-500/20 to-red-600/20 p-6 rounded-xl border-2 border-red-400/30 backdrop-blur-sm hover:border-red-400/60 transition-all">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <div className="bg-red-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                    🔴 RED PILL
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <h3 className="font-bold text-xl mb-4 text-red-200">
+                    Stay in the Matrix
+                  </h3>
+                  <p className="text-gray-100">
+                    Keep your current website (or lack thereof) and continue
+                    losing customers to competitors who simply look more
+                    professional online. Stay comfortable, stay the same.
+                  </p>
+                </div>
               </div>
 
-              <div className="bg-white/10 p-6 rounded-xl">
-                <h3 className="font-bold text-xl mb-4 text-green-200">
-                  Choice 2:
-                </h3>
-                <p>
-                  Invest in a professional web presence that works 24/7 to
-                  attract, engage, and convert your ideal customers.
-                </p>
+              {/* BLUE Pill */}
+              <div className="relative bg-gradient-to-br from-blue-500/20 to-cyan-400/20 p-6 rounded-xl border-2 border-cyan-400/50 backdrop-blur-sm hover:border-cyan-400/80 transition-all shadow-lg">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <div className="bg-gradient-to-r from-cyan-400 to-blue-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                    🔵 PIXEL PILL
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <h3 className="font-bold text-xl mb-4 text-cyan-200">
+                    Enter the Digital Future
+                  </h3>
+                  <p className="text-gray-100">
+                    Invest in a professional web presence that works 24/7 to
+                    attract, engage, and convert your ideal customers. Wake up
+                    to reality.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -49,17 +76,17 @@ const FinalCTA = () => {
           </button>
 
           <p className="text-lg opacity-90 mb-8">
-            Free consultation - no obligation
+            Free consultation - no obligation - no red tape
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-8 text-lg">
             <div className="flex items-center gap-3">
               <Phone className="w-6 h-6" />
-              <span>Call: 1300 PIXELATE</span>
+              <span>Call: +61412169089</span>
             </div>
             <div className="flex items-center gap-3">
               <Mail className="w-6 h-6" />
-              <span>hello@pixelate.com.au</span>
+              <span>hello@pixelatelabs.com.au</span>
             </div>
             <div className="flex items-center gap-3">
               <Clock className="w-6 h-6" />

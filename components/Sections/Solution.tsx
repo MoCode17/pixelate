@@ -12,8 +12,8 @@ const Solution = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="bg-blue-50 p-8 rounded-xl mb-8">
+          <div className="h-full">
+            <div className="bg-blue-50 p-8 rounded-xl">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Picture this:
               </h3>
@@ -31,18 +31,9 @@ const Solution = () => {
                 </p>
               </div>
             </div>
-
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              This is what happens when you get pixelated.
-            </h3>
-            <p className="text-lg text-gray-600">
-              We don't just build websites. We create digital assets that work
-              24/7 to attract, engage, and convert your ideal customers into
-              paying clients.
-            </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="flex flex-col justify-between h-full">
             <div className="flex items-center gap-4 p-6 bg-green-50 rounded-lg">
               <Zap className="w-8 h-8 text-green-600" />
               <div>
@@ -79,6 +70,16 @@ const Solution = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="text-center pt-6 mt-4">
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            This is what happens when you get pixelated.
+          </h3>
+          <p className="text-lg text-gray-600">
+            We don't just build websites. We create digital assets that work
+            24/7 to attract, engage, and convert your ideal customers into
+            paying clients.
+          </p>
         </div>
       </div>
     </section>

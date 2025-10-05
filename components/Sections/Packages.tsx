@@ -19,23 +19,39 @@ const Packages = () => {
                 Essential
               </h3>
               <p className="text-gray-600 mb-4">
-                Perfect for small businesses ready to go professional
+                Perfect for small or new businesses getting started online
               </p>
-              <div className="text-4xl font-bold text-gray-900">$2,997</div>
+              <div className="text-4xl font-bold text-gray-900">$997</div>
             </div>
 
             <div className="space-y-4 mb-8">
               <div className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-green-500 mt-1" />
-                <span>Enhanced SEO optimization</span>
+                <span>3-page custom website (Home, About, Contact)</span>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-green-500 mt-1" />
-                <span>Social media integration</span>
+                <span>Mobile-responsive design</span>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-green-500 mt-1" />
-                <span>Blog/news system</span>
+                <span>Premium hosting setup (first year included)</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-green-500 mt-1" />
+                <span>SSL certificate & security setup</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-green-500 mt-1" />
+                <span>Contact form & basic lead capture</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-green-500 mt-1" />
+                <span>Google My Business setup</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-green-500 mt-1" />
+                <span>Professional business email setup</span>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-green-500 mt-1" />
@@ -43,54 +59,8 @@ const Packages = () => {
               </div>
             </div>
 
-            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors">
-              Go Professional
-            </button>
-          </div>
-
-          {/* Premium Package */}
-          <div className="bg-white p-8 rounded-xl shadow-lg border relative">
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Premium</h3>
-              <p className="text-gray-600 mb-4">
-                For ambitious businesses building market leadership
-              </p>
-              <div className="text-4xl font-bold text-gray-900">$7,997</div>
-            </div>
-
-            <div className="space-y-4 mb-8">
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-green-500 mt-1" />
-                <span>Everything in Professional</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-green-500 mt-1" />
-                <span>Advanced analytics & tracking</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-green-500 mt-1" />
-                <span>Conversion rate optimization</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-green-500 mt-1" />
-                <span>Competitor analysis</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-green-500 mt-1" />
-                <span>Monthly performance reports</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-green-500 mt-1" />
-                <span>Priority support for 6 months</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-green-500 mt-1" />
-                <span>Google Ads setup included</span>
-              </div>
-            </div>
-
             <button className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 rounded-lg font-semibold transition-colors">
-              Go Premium
+              Get Started
             </button>
           </div>
 
@@ -101,7 +71,75 @@ const Packages = () => {
                 MOST POPULAR
               </span>
             </div>
+            <div className="text-center mb-6">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                Professional
+              </h3>
+              <p className="text-gray-600 mb-4">
+                For businesses ready to attract & convert customers
+              </p>
+              <div className="text-4xl font-bold text-gray-900">$2,997</div>
+            </div>
 
+            <div className="space-y-4 mb-8">
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-green-500 mt-1" />
+                <span>Everything in Essential</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-green-500 mt-1" />
+                <span>5-page custom website</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-green-500 mt-1" />
+                <span>Professional copywriting for all pages</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-green-500 mt-1" />
+                <span>Advanced SEO optimization</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-green-500 mt-1" />
+                <span>Google Analytics & conversion tracking</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-green-500 mt-1" />
+                <span>Email marketing automation setup</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-green-500 mt-1" />
+                <span>AI chat booking assistant</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-green-500 mt-1" />
+                <span>Appointment scheduling integration</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-green-500 mt-1" />
+                <span>Social media integration</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-green-500 mt-1" />
+                <span>Lead capture forms & CRM integration</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-green-500 mt-1" />
+                <span>3 months priority support</span>
+              </div>
+            </div>
+
+            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors">
+              Go Professional
+            </button>
+          </div>
+
+          {/* Premium Package */}
+          <div className="bg-white p-8 rounded-xl shadow-lg border relative opacity-75">
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              <span className="bg-red-500 text-white px-6 py-2 rounded-full text-sm font-semibold">
+                BOOKED OUT
+              </span>
+            </div>
             <div className="text-center mb-6">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">
                 Professional
@@ -115,44 +153,58 @@ const Packages = () => {
             <div className="space-y-4 mb-8">
               <div className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-green-500 mt-1" />
-                <span>Everything in Essential</span>
+                <span>Everything in Professional</span>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-green-500 mt-1" />
-                <span>Advanced content strategy</span>
+                <span>Advanced content strategy & keyword research</span>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-green-500 mt-1" />
-                <span>Professional copywriting</span>
+                <span>Competitor analysis report</span>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-green-500 mt-1" />
-                <span>5-page custom website</span>
+                <span>
+                  Google Ads setup & initial campaign ($300 ad credit included)
+                </span>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-green-500 mt-1" />
-                <span>Mobile-responsive design</span>
+                <span>Conversion rate optimization</span>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-green-500 mt-1" />
-                <span>Basic SEO optimization</span>
+                <span>Monthly performance reports (6 months)</span>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-green-500 mt-1" />
-                <span>Contact forms & lead capture</span>
+                <span>Local payment integration (Stripe, Square, etc.)</span>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-green-500 mt-1" />
-                <span>Google Analytics setup</span>
+                <span>Website backup & security monitoring (12 months)</span>
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-green-500 mt-1" />
-                <span>1 month support</span>
+                <span>Advanced analytics dashboard</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-green-500 mt-1" />
+                <span>Marketing automation workflows</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-green-500 mt-1" />
+                <span>6 months priority support</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <Check className="w-5 h-5 text-green-500 mt-1" />
+                <span>Quarterly strategy review calls</span>
               </div>
             </div>
 
-            <button className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 rounded-lg font-semibold transition-colors">
-              Get Started
+            <button className="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold transition-colors">
+              Go Premium
             </button>
           </div>
         </div>
