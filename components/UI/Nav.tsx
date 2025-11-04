@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 const scrollToSection = (sectionId: string) => {
   document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
@@ -19,6 +20,7 @@ const Nav = () => {
 
   return (
     <nav
+      id="navbar"
       className={`fixed z-50 transition-all duration-300 ${
         isScrolled
           ? "top-4 left-1/2 transform -translate-x-1/2 w-auto rounded-full bg-white/50 backdrop-blur-xl shadow-lg border border-gray-200/50"
@@ -35,15 +37,30 @@ const Nav = () => {
             isScrolled ? "h-12 space-x-6" : "h-16"
           }`}
         >
+          {/* Logo Section */}
           <div className="flex items-center">
-            <div
+            {/* <div
               className={`font-bold text-electric transition-all duration-300 ${
                 isScrolled ? "text-lg" : "text-2xl"
               }`}
             >
               PIXELATE
-            </div>
+            </div> */}
+            <button
+              onClick={() => scrollToSection("hero")}
+              className="hover:cursor-pointer hover:scale-105 transition-transform duration-300"
+            >
+              <Image
+                src="/images/PixelateLogo.svg"
+                alt="Pixelate Labs"
+                width={isScrolled ? 100 : 180}
+                height={isScrolled ? 30 : 36}
+                priority
+                className="object-contain"
+              />
+            </button>
           </div>
+          {/* Links Section */}
           <div
             className={`hidden md:flex transition-all duration-300 ${
               isScrolled ? "space-x-4" : "space-x-8"
@@ -74,8 +91,9 @@ const Nav = () => {
               Success Stories
             </button>
           </div>
+          {/* CTA Section */}
           <button
-            className={`bg-coral hover:bg-coraldark text-white rounded-lg font-semibold transition-all duration-300 ${
+            className={`bg-fanta hover:bg-fanta-dark hover:scale-105 hover:shadow-xl text-white rounded-full font-semibold transition-all duration-300 ${
               isScrolled ? "px-4 py-1.5 text-sm" : "px-6 py-2"
             }`}
           >

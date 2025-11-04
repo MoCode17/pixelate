@@ -10,7 +10,10 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-white">
+    <section
+      id="hero"
+      className="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-white"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <div
@@ -38,10 +41,10 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-              <button className="bg-electric hover:bg-electric text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 shadow-lg">
+              <button className="bg-electric hover:bg-electric text-white cursor-pointer px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 shadow-lg">
                 Get My Free Website Audit
               </button>
-              <button className="border-2 border-gray-300 hover:border-electric text-gray-700 hover:text-electric px-8 py-4 rounded-lg font-semibold text-lg transition-all">
+              <button className="cursor-pointer border-2 border-gray-300 hover:border-electric text-gray-700 hover:text-electric px-8 py-4 rounded-lg font-semibold text-lg transition-all">
                 See Success Stories
               </button>
             </div>

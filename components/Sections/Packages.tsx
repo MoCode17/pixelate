@@ -59,7 +59,7 @@ const Packages = () => {
               </div>
             </div>
 
-            <button className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 rounded-lg font-semibold transition-colors">
+            <button className="w-full cursor-pointer bg-gray-900 hover:bg-gray-800 text-white py-3 rounded-lg font-semibold transition-colors">
               Get Started
             </button>
           </div>
@@ -128,7 +128,7 @@ const Packages = () => {
               </div>
             </div>
 
-            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors">
+            <button className="w-full cursor-pointer bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors">
               Go Professional
             </button>
           </div>
@@ -141,9 +141,7 @@ const Packages = () => {
               </span>
             </div>
             <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                Professional
-              </h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Premium</h3>
               <p className="text-gray-600 mb-4">
                 For established businesses ready to dominate online
               </p>
@@ -203,7 +201,7 @@ const Packages = () => {
               </div>
             </div>
 
-            <button className="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold transition-colors">
+            <button className="w-full pointer-events-none bg-gray-900 text-white py-3 rounded-lg font-semibold transition-colors">
               Go Premium
             </button>
           </div>
