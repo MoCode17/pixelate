@@ -1,7 +1,7 @@
 import React from "react";
 import { Clock, TrendingUp, Users, Shield } from "lucide-react";
 
-const Urgency = () => {
+const LandingUrgency = () => {
   return (
     <>
       <section className="py-16 bg-red-50">
@@ -114,4 +114,4 @@ const Urgency = () => {
   );
 };
 
-export default Urgency;
+export default LandingUrgency;

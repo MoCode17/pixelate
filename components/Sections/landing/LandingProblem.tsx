@@ -1,6 +1,6 @@
 import React from "react";
 
-const Problem = () => {
+const LandingProblem = () => {
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -97,4 +97,4 @@ const Problem = () => {
   );
 };
 
-export default Problem;
+export default LandingProblem;

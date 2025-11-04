@@ -1,7 +1,7 @@
 import React from "react";
 import { Check } from "lucide-react";
 
-const Packages = () => {
+const LandingPackages = () => {
   return (
     <section id="packages" className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -231,4 +231,4 @@ const Packages = () => {
   );
 };
 
-export default Packages;
+export default LandingPackages;

@@ -3,7 +3,7 @@ import { Phone, Mail, Clock } from "lucide-react";
 import Image from "next/image";
 import matrix from "@/public/matrix.jpg";
 
-const FinalCTA = () => {
+const LandingFinalCTA = () => {
   return (
     <section className="py-16 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -99,4 +99,4 @@ const FinalCTA = () => {
   );
 };
 
-export default FinalCTA;
+export default LandingFinalCTA;

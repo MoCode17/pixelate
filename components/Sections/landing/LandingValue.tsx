@@ -1,6 +1,6 @@
 import React from "react";
 
-const Value = () => {
+const LandingValue = () => {
   return (
     <section className="py-16 bg-blue-600 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -95,4 +95,4 @@ const Value = () => {
   );
 };
 
-export default Value;
+export default LandingValue;

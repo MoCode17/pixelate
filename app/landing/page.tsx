@@ -7,12 +7,19 @@ import LandingValue from "@/components/sections/landing/LandingValue";
 import LandingPackages from "@/components/sections/landing/LandingPackages";
 import LandingUrgency from "@/components/sections/landing/LandingUrgency";
 import LandingFinalCTA from "@/components/sections/landing/LandingLandingFinalCTA";
-import Hero from "@/components/sections/Hero";
 
-export default function Home() {
+export default function Landing() {
   return (
     <>
-      <Hero />
+      <LandingHero />
+      <LandingProblem />
+      <LandingSolution />
+      <LandingHowItWorks />
+      <LandingTestimonials />
+      <LandingValue />
+      <LandingPackages />
+      <LandingUrgency />
+      <LandingFinalCTA />
     </>
   );
 }

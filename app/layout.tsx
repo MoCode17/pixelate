@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import Nav from "@/components/UI/Nav";
+import Footer from "@/components/UI/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,7 +33,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${inter.className} antialiased`}>
+        <div className="min-h-screen bg-white">
+          <Nav />
+          {children}
+          <Footer />
+        </div>
+      </body>
     </html>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { Zap, Target, TrendingUp } from "lucide-react";
 
-const Solution = () => {
+const LandingSolution = () => {
   return (
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -86,4 +86,4 @@ const Solution = () => {
   );
 };
 
-export default Solution;
+export default LandingSolution;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Star } from "lucide-react";
 
-const Testimonials = () => {
+const LandingTestimonials = () => {
   return (
     <section id="testimonials" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,4 +89,4 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials;
+export default LandingTestimonials;
