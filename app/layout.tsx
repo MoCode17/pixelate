@@ -23,11 +23,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Pixelate | Melbourne Web Design & Development Agency",
-  description: "Award-winning web design and development agency in Melbourne. We create stunning, high-performance websites that convert visitors into customers. Transform your digital presence today.",
+  description:
+    "Award-winning web design and development agency in Melbourne. We create stunning, high-performance websites that convert visitors into customers. Transform your digital presence today.",
   openGraph: {
     title: "Pixelate | Melbourne Web Design & Development",
-    description: "Award-winning web design and development agency in Melbourne. We create stunning, high-performance websites that convert visitors into customers.",
-    images: ["/og-image.jpg"],
+    description:
+      "Award-winning web design and development agency in Melbourne. We create stunning, high-performance websites that convert visitors into customers.",
   },
 };
 
