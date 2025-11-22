@@ -2,7 +2,15 @@
 
 import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { Palette, Code2, Sparkles, ArrowRight, Zap, Layout, Rocket } from "lucide-react";
+import {
+  Palette,
+  Code2,
+  Globe,
+  ArrowRight,
+  Zap,
+  Layout,
+  Rocket,
+} from "lucide-react";
 
 interface Service {
   id: number;
@@ -88,7 +96,7 @@ const Services = () => {
   };
 
   return (
-    <section className="relative bg-gray-50 py-20 md:py-32">
+    <section className="relative bg-gray-50 py-8 md:py-12">
       {/* Section Header */}
       <div className="max-w-7xl mx-auto px-6 mb-20">
         <motion.div
@@ -98,9 +106,9 @@ const Services = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-electric/10 rounded-full mb-6">
-            <Sparkles className="w-4 h-4 text-electric" />
-            <span className="text-sm font-semibold text-electric uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-fanta/10 rounded-full mb-6">
+            <Globe className="w-4 h-4 text-fanta" />
+            <span className="text-sm font-semibold text-fanta uppercase tracking-wider">
               Our Services
             </span>
           </div>
@@ -108,28 +116,29 @@ const Services = () => {
             Everything You Need to Succeed Online
           </h2>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-            From concept to launch and beyond, we provide comprehensive web solutions tailored to
-            your business goals.
+            From concept to launch and beyond, we provide comprehensive web
+            solutions tailored to your business goals.
           </p>
         </motion.div>
       </div>
 
       {/* Sticky Services Cards */}
       <div className="relative max-w-7xl mx-auto px-6">
-        <div className="space-y-8 md:space-y-0">
+        <div className="space-y-0">
           {services.map((service, index) => (
             <div
               key={service.id}
-              className="relative md:h-screen flex items-center justify-center"
+              className="sticky flex items-center justify-center top-10"
               style={{
-                paddingTop: index === 0 ? "0" : "80px",
-                paddingBottom: index === services.length - 1 ? "0" : "80px",
+                paddingTop: index === 0 ? "0" : "20vh",
+                paddingBottom: index === services.length - 1 ? "20vh" : "0",
               }}
             >
               <motion.div
-                className={`w-full md:sticky md:top-20`}
+                className="w-full sticky"
                 style={{
-                  zIndex: services.length - index,
+                  top: `${index * 40 + 80}px`,
+                  zIndex: index,
                 }}
                 initial={prefersReducedMotion ? {} : { opacity: 0, y: 60 }}
                 whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
@@ -152,7 +161,11 @@ const Services = () => {
                               ? { scale: 1.1, rotate: 5 }
                               : {}
                           }
-                          transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 30,
+                          }}
                         >
                           {service.icon}
                         </motion.div>
@@ -170,9 +183,17 @@ const Services = () => {
                         {/* CTA Button */}
                         <motion.button
                           className={`group inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold bg-gradient-to-r ${service.gradient} text-white shadow-lg hover:shadow-xl transition-shadow duration-300`}
-                          whileHover={!prefersReducedMotion ? { scale: 1.05 } : {}}
-                          whileTap={!prefersReducedMotion ? { scale: 0.95 } : {}}
-                          transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                          whileHover={
+                            !prefersReducedMotion ? { scale: 1.05 } : {}
+                          }
+                          whileTap={
+                            !prefersReducedMotion ? { scale: 0.95 } : {}
+                          }
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 30,
+                          }}
                         >
                           Learn More
                           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -188,8 +209,12 @@ const Services = () => {
                           <motion.div
                             key={i}
                             className="flex items-start gap-3 p-4 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors duration-300"
-                            initial={prefersReducedMotion ? {} : { opacity: 0, x: 20 }}
-                            whileInView={prefersReducedMotion ? {} : { opacity: 1, x: 0 }}
+                            initial={
+                              prefersReducedMotion ? {} : { opacity: 0, x: 20 }
+                            }
+                            whileInView={
+                              prefersReducedMotion ? {} : { opacity: 1, x: 0 }
+                            }
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1, duration: 0.4 }}
                             whileHover={!prefersReducedMotion ? { x: 5 } : {}}
@@ -199,7 +224,9 @@ const Services = () => {
                             >
                               <Zap className="w-3 h-3 text-white" />
                             </div>
-                            <span className="text-gray-700 font-medium">{feature}</span>
+                            <span className="text-gray-700 font-medium">
+                              {feature}
+                            </span>
                           </motion.div>
                         ))}
                       </div>
@@ -207,7 +234,9 @@ const Services = () => {
 
                     {/* Background Decoration */}
                     <div className="absolute top-0 right-0 w-64 h-64 opacity-5">
-                      <div className={`w-full h-full bg-gradient-to-br ${service.gradient} rounded-full blur-3xl`} />
+                      <div
+                        className={`w-full h-full bg-gradient-to-br ${service.gradient} rounded-full blur-3xl`}
+                      />
                     </div>
                   </div>
                 </div>
@@ -231,8 +260,9 @@ const Services = () => {
               Ready to Transform Your Digital Presence?
             </h3>
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Let's create something extraordinary together. Get a free consultation and discover
-              how we can help your business thrive online.
+              Let's create something extraordinary together. Get a free
+              consultation and discover how we can help your business thrive
+              online.
             </p>
             <motion.button
               className="px-8 py-4 bg-electric text-white rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl hover:shadow-electric/50 transition-all duration-300"
