@@ -3,11 +3,11 @@
 import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
-  Palette,
+  TabletSmartphone,
   Code2,
   Globe,
   ArrowRight,
-  Zap,
+  Check,
   Layout,
   Rocket,
 } from "lucide-react";
@@ -28,7 +28,7 @@ const Services = () => {
   const services: Service[] = [
     {
       id: 1,
-      icon: <Palette className="w-12 h-12" />,
+      icon: <TabletSmartphone className="w-12 h-12" />,
       title: "Web Design",
       description:
         "Create stunning, user-centric designs that captivate your audience and reflect your brand's unique identity.",
@@ -38,8 +38,8 @@ const Services = () => {
         "Responsive Layouts",
         "Prototyping & Wireframing",
       ],
-      gradient: "from-coral via-coraldark to-coral/80",
-      accentColor: "text-coral",
+      gradient: "from-coral via-red-800 to-coral/80",
+      accentColor: "text-white/80",
     },
     {
       id: 2,
@@ -53,8 +53,8 @@ const Services = () => {
         "SEO Best Practices",
         "API Integration",
       ],
-      gradient: "from-electric via-blue-600 to-electric/80",
-      accentColor: "text-electric",
+      gradient: "from-electric via-green-200/70 to-electric/80",
+      accentColor: "text-black",
     },
     {
       id: 3,
@@ -106,9 +106,9 @@ const Services = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-fanta/10 rounded-full mb-6">
-            <Globe className="w-4 h-4 text-fanta" />
-            <span className="text-sm font-semibold text-fanta uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-electric/10 rounded-full mb-6">
+            <Globe className="w-4 h-4 text-electric" />
+            <span className="text-sm font-semibold text-electric uppercase tracking-wider">
               Our Services
             </span>
           </div>
@@ -123,132 +123,128 @@ const Services = () => {
       </div>
 
       {/* Sticky Services Cards */}
-      <div className="relative max-w-7xl mx-auto px-6">
-        <div className="space-y-0">
-          {services.map((service, index) => (
-            <div
-              key={service.id}
-              className="sticky flex items-center justify-center top-10"
-              style={{
-                paddingTop: index === 0 ? "0" : "20vh",
-                paddingBottom: index === services.length - 1 ? "20vh" : "0",
-              }}
-            >
-              <motion.div
-                className="w-full sticky"
-                style={{
-                  top: `${index * 40 + 80}px`,
-                  zIndex: index,
-                }}
-                initial={prefersReducedMotion ? {} : { opacity: 0, y: 60 }}
-                whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-150px" }}
-                transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+      <div className="relative max-w-7xl mx-auto px-6 py-6">
+        <div className="flex flex-col gap-20">
+          {services.map((service, index) => {
+            const topOffset = 120 - index * 20;
+            return (
+              <div
+                key={service.id}
+                className="sticky flex items-center justify-center m-0"
+                style={{ top: `${120}px` }}
               >
-                <div
-                  className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${service.gradient} p-1 shadow-2xl`}
+                <motion.div
+                  className="w-full"
+                  initial={prefersReducedMotion ? {} : { opacity: 0, y: 60 }}
+                  whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
                 >
-                  {/* Gradient Border Effect */}
-                  <div className="bg-white rounded-[22px] p-8 md:p-12 lg:p-16">
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
-                      {/* Left Side - Content */}
-                      <div>
-                        {/* Icon */}
-                        <motion.div
-                          className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${service.gradient} ${service.accentColor} mb-6 shadow-lg`}
-                          whileHover={
-                            !prefersReducedMotion
-                              ? { scale: 1.1, rotate: 5 }
-                              : {}
-                          }
-                          transition={{
-                            type: "spring",
-                            stiffness: 400,
-                            damping: 30,
-                          }}
-                        >
-                          {service.icon}
-                        </motion.div>
-
-                        {/* Title */}
-                        <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
-                          {service.title}
-                        </h3>
-
-                        {/* Description */}
-                        <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
-                          {service.description}
-                        </p>
-
-                        {/* CTA Button */}
-                        <motion.button
-                          className={`group inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold bg-gradient-to-r ${service.gradient} text-white shadow-lg hover:shadow-xl transition-shadow duration-300`}
-                          whileHover={
-                            !prefersReducedMotion ? { scale: 1.05 } : {}
-                          }
-                          whileTap={
-                            !prefersReducedMotion ? { scale: 0.95 } : {}
-                          }
-                          transition={{
-                            type: "spring",
-                            stiffness: 400,
-                            damping: 30,
-                          }}
-                        >
-                          Learn More
-                          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                        </motion.button>
-                      </div>
-
-                      {/* Right Side - Features */}
-                      <div className="space-y-4">
-                        <h4 className="text-lg font-semibold text-gray-900 mb-6 uppercase tracking-wider">
-                          What's Included
-                        </h4>
-                        {service.features.map((feature, i) => (
+                  <div
+                    className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${service.gradient} p-1 shadow-2xl`}
+                  >
+                    {/* Gradient Border Effect */}
+                    <div className="bg-white rounded-[22px] p-8 md:p-12 lg:p-16">
+                      <div className="grid md:grid-cols-2 gap-12 items-center">
+                        {/* Left Side - Content */}
+                        <div>
+                          {/* Icon */}
                           <motion.div
-                            key={i}
-                            className="flex items-start gap-3 p-4 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors duration-300"
-                            initial={
-                              prefersReducedMotion ? {} : { opacity: 0, x: 20 }
+                            className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${service.gradient} ${service.accentColor} mb-6 shadow-lg`}
+                            whileHover={
+                              !prefersReducedMotion
+                                ? { scale: 1.1, rotate: 5 }
+                                : {}
                             }
-                            whileInView={
-                              prefersReducedMotion ? {} : { opacity: 1, x: 0 }
-                            }
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1, duration: 0.4 }}
-                            whileHover={!prefersReducedMotion ? { x: 5 } : {}}
+                            transition={{
+                              type: "spring",
+                              stiffness: 400,
+                              damping: 30,
+                            }}
                           >
-                            <div
-                              className={`flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br ${service.gradient} flex items-center justify-center mt-0.5`}
-                            >
-                              <Zap className="w-3 h-3 text-white" />
-                            </div>
-                            <span className="text-gray-700 font-medium">
-                              {feature}
-                            </span>
+                            {service.icon}
                           </motion.div>
-                        ))}
-                      </div>
-                    </div>
 
-                    {/* Background Decoration */}
-                    <div className="absolute top-0 right-0 w-64 h-64 opacity-5">
-                      <div
-                        className={`w-full h-full bg-gradient-to-br ${service.gradient} rounded-full blur-3xl`}
-                      />
+                          {/* Title */}
+                          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
+                            {service.title}
+                          </h3>
+
+                          {/* Description */}
+                          <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+                            {service.description}
+                          </p>
+
+                          {/* CTA Button */}
+                          <motion.button
+                            className={`group inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold bg-gradient-to-r ${service.gradient} text-black shadow-lg hover:shadow-xl transition-shadow duration-300`}
+                            whileHover={
+                              !prefersReducedMotion ? { scale: 1.05 } : {}
+                            }
+                            whileTap={
+                              !prefersReducedMotion ? { scale: 0.95 } : {}
+                            }
+                            transition={{
+                              type: "spring",
+                              stiffness: 400,
+                              damping: 30,
+                            }}
+                          >
+                            Learn More
+                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                          </motion.button>
+                        </div>
+
+                        {/* Right Side - Features */}
+                        <div className="space-y-4">
+                          <h4 className="text-lg font-semibold text-gray-900 mb-6 uppercase tracking-wider">
+                            What's Included
+                          </h4>
+                          {service.features.map((feature, i) => (
+                            <motion.div
+                              key={i}
+                              className="flex items-start gap-3 p-4 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors duration-300"
+                              initial={
+                                prefersReducedMotion
+                                  ? {}
+                                  : { opacity: 0, x: 20 }
+                              }
+                              whileInView={
+                                prefersReducedMotion ? {} : { opacity: 1, x: 0 }
+                              }
+                              viewport={{ once: true }}
+                              transition={{ delay: i * 0.1, duration: 0.4 }}
+                              whileHover={!prefersReducedMotion ? { x: 5 } : {}}
+                            >
+                              <div
+                                className={`flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br ${service.gradient} flex items-center justify-center mt-0.5`}
+                              ></div>
+                              <span className="text-gray-700 font-medium">
+                                {feature}
+                              </span>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Background Decoration */}
+                      <div className="absolute top-0 right-0 w-64 h-64 opacity-5">
+                        <div
+                          className={`w-full h-full bg-gradient-to-br ${service.gradient} rounded-full blur-3xl`}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            </div>
-          ))}
+                </motion.div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
       {/* Bottom CTA Section */}
       <motion.div
-        className="max-w-4xl mx-auto px-6 mt-32 text-center"
+        className="max-w-4xl mx-auto px-6 mt-24 text-center"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
