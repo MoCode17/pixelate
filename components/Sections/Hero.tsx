@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
+import ClientHero from "../UI/ClientHero";
 
 const Hero = () => {
   const prefersReducedMotion = useReducedMotion();
@@ -109,7 +110,7 @@ const Hero = () => {
 
       {/* Main Content */}
       <motion.div
-        className="relative z-10 max-w-7xl mx-auto px-6 py-20 mt-12 text-center"
+        className="relativer z-10 max-w-7xl mx-auto px-6 py-20 mt-12 text-center overflow-hidden"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -130,7 +131,7 @@ const Hero = () => {
         {/* Main Headline */}
         <motion.h1
           {...animationProps}
-          className=" text-[#1d1d1d] text-4xl md:text-5xl lg:texl-6xl xl:text-7xl font-[500] mb-6 leading-tight"
+          className=" text-[#1d1d1d] text-4xl md:text-5xl lg:texl-6xl xl:text-7xl font-[500] mb-12 leading-tight"
         >
           <span className="">Web Design</span>
           <br />
@@ -164,13 +165,12 @@ const Hero = () => {
         >
           {/* Primary CTA */}
           <motion.button
-            className="group relative px-8 py-4 bg-electric text-white rounded-full font-semibold text-lg shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-electric/50"
-            whileHover={!prefersReducedMotion ? { scale: 1.05 } : {}}
-            whileTap={!prefersReducedMotion ? { scale: 0.95 } : {}}
-            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+            className="group relative px-8 py-4 bg-fanta text-white rounded-full font-semibold text-lg shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-electric/50 hover:scale-105"
+            whileTap={!prefersReducedMotion ? { scale: 0.8 } : {}}
+            transition={{ type: "spring", stiffness: 600, damping: 30 }}
           >
             {/* Ripple effect background */}
-            <span className="absolute inset-0 bg-gradient-to-r from-electric to-coraldark opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="absolute inset-0 bg-gradient-to-b from-[#bd7dfa] to-[#f0c85a] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <span className="relative flex items-center gap-2">
               Start Your Project
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -179,45 +179,19 @@ const Hero = () => {
 
           {/* Secondary CTA */}
           <motion.button
-            className="group px-8 py-4 bg-white/80 backdrop-blur-sm text-electric border-2 border-electric rounded-full font-semibold text-lg shadow-lg hover:bg-electric hover:text-white transition-all duration-300"
-            whileHover={!prefersReducedMotion ? { scale: 1.05 } : {}}
-            whileTap={!prefersReducedMotion ? { scale: 0.95 } : {}}
-            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+            className="group relative px-8 py-4 bg-white/80 backdrop-blur-sm text-electric border-2 border-electric rounded-full font-semibold text-lg shadow-lg hover:text-white transition-all duration-300 hover:scale-105 overflow-hidden"
+            whileTap={!prefersReducedMotion ? { scale: 0.8 } : {}}
+            transition={{ type: "spring", stiffness: 600, damping: 30 }}
           >
-            <span className="flex items-center gap-2">
+            {/* Ripple effect background */}
+            <span className="absolute inset-0 bg-gradient-to-b from-[#87fa7d] to-[#47afdf] opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-120" />
+            <span className="relative flex items-center gap-2">
               View Our Work
               <span className="group-hover:rotate-45 transition-transform duration-300">
                 ↗
               </span>
             </span>
           </motion.button>
-        </motion.div>
-
-        {/* Client Logos / Social Proof */}
-        <motion.div
-          {...animationProps}
-          className="flex flex-col items-center gap-6"
-        >
-          <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">
-            Delivering results for
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
-            {/* Placeholder for client logos - replace with actual logos */}
-            {["Client 1", "Client 2", "Client 3", "Client 4", "Client 5"].map(
-              (client, i) => (
-                <motion.div
-                  key={i}
-                  className="w-24 h-12 bg-gray-200 rounded-lg flex items-center justify-center text-xs text-gray-400 font-medium"
-                  whileHover={
-                    !prefersReducedMotion ? { opacity: 1, scale: 1.1 } : {}
-                  }
-                  transition={{ duration: 0.2 }}
-                >
-                  {client}
-                </motion.div>
-              )
-            )}
-          </div>
         </motion.div>
 
         {/* Scroll Indicator */}
