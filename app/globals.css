@@ -23,8 +23,10 @@ body {
   --color-coral: #ff6b6b;
   --color-coraldark: #ff2e2e;
   --color-electric: #0066ff;
-  --color-fanta: #ffc81b;
-  --color-fanta-dark: #e0af24;
+  --color-fanta-old: #ffc81b;
+  --color-fanta: #ff9900;
+  --color-fanta-dark-old: #e0af24;
+  --color-fanta-dark: #cc6600:
 
   /* Background/Foreground */
   --color-background: var(--background);

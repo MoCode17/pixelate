@@ -57,23 +57,12 @@ const Hero = () => {
       };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-coral/5">
+    <section className="relative min-h-screen flex justify-center overflow-hidden bg-gradient-to-b from-[#3399FF]/62 from-40% to-[#EEF1FF]/62 to-75%">
       {/* Animated Background Elements */}
       {!prefersReducedMotion && mounted && (
         <>
           {/* Gradient Orbs */}
-          <motion.div
-            className="absolute top-20 left-10 w-72 h-72 bg-electric/20 rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
+
           <motion.div
             className="absolute bottom-20 right-10 w-96 h-96 bg-coral/20 rounded-full blur-3xl"
             animate={{
@@ -88,15 +77,14 @@ const Hero = () => {
             }}
           />
           <motion.div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-fanta/10 rounded-full blur-3xl"
+            className="absolute -bottom-[50%]  left-1/2 -translate-x-1/2  w-[120vw] h-[60vh] bg-fanta/70 rounded-full blur-[160px]"
             animate={{
               scale: [1, 1.1, 1],
-              rotate: [0, 180, 360],
             }}
             transition={{
-              duration: 20,
+              duration: 10,
               repeat: Infinity,
-              ease: "linear",
+              ease: "easeInOut",
             }}
           />
 
@@ -121,13 +109,16 @@ const Hero = () => {
 
       {/* Main Content */}
       <motion.div
-        className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center"
+        className="relative z-10 max-w-7xl mx-auto px-6 py-20 mt-12 text-center"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         {/* Social Proof Badge */}
-        <motion.div {...animationProps} className="inline-flex items-center gap-2 mb-8">
+        <motion.div
+          {...animationProps}
+          className="inline-flex items-center gap-2 mb-8"
+        >
           <div className="flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-electric/20">
             <Sparkles className="w-4 h-4 text-fanta" />
             <span className="text-sm font-medium text-gray-700">
@@ -139,33 +130,31 @@ const Hero = () => {
         {/* Main Headline */}
         <motion.h1
           {...animationProps}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
+          className=" text-[#1d1d1d] text-4xl md:text-5xl lg:texl-6xl xl:text-7xl font-[500] mb-6 leading-tight"
         >
-          <span className="bg-gradient-to-r from-gray-900 via-electric to-gray-900 bg-clip-text text-transparent">
-            Transform Your
-          </span>
+          <span className="">Web Design</span>
           <br />
-          <span className="bg-gradient-to-r from-coral via-coraldark to-coral bg-clip-text text-transparent">
-            Digital Presence
-          </span>
+          <span className="">Without The Tech Headaches</span>
         </motion.h1>
 
         {/* Subheadline */}
         <motion.p
           {...animationProps}
-          className="text-xl md:text-2xl text-gray-600 mb-4 max-w-3xl mx-auto leading-relaxed"
+          className="text-lg md:text-xl text-gray-800 mb-4 max-w-3xl mx-auto leading-relaxed"
         >
-          Melbourne's award-winning web design agency creating{" "}
-          <span className="font-semibold text-electric">high-performance websites</span> that
-          convert visitors into customers.
+          Melbourne's favourite design agency creating{" "}
+          <span className="font-semibold text-electric">
+            high-performance websites
+          </span>{" "}
+          that convert visitors into customers.
         </motion.p>
 
         <motion.p
           {...animationProps}
-          className="text-lg md:text-xl text-gray-500 mb-12 max-w-2xl mx-auto"
+          className="text-md md:text-lg text-gray-500 mb-12 max-w-2xl mx-auto"
         >
-          We help growing businesses stand out online with stunning design, seamless UX, and
-          lightning-fast performance.
+          We help growing businesses stand out online with stunning design,
+          seamless user experience, and lightning-fast performance.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -197,28 +186,37 @@ const Hero = () => {
           >
             <span className="flex items-center gap-2">
               View Our Work
-              <span className="group-hover:rotate-45 transition-transform duration-300">↗</span>
+              <span className="group-hover:rotate-45 transition-transform duration-300">
+                ↗
+              </span>
             </span>
           </motion.button>
         </motion.div>
 
         {/* Client Logos / Social Proof */}
-        <motion.div {...animationProps} className="flex flex-col items-center gap-6">
+        <motion.div
+          {...animationProps}
+          className="flex flex-col items-center gap-6"
+        >
           <p className="text-sm text-gray-500 font-medium uppercase tracking-wider">
             Delivering results for
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
             {/* Placeholder for client logos - replace with actual logos */}
-            {["Client 1", "Client 2", "Client 3", "Client 4", "Client 5"].map((client, i) => (
-              <motion.div
-                key={i}
-                className="w-24 h-12 bg-gray-200 rounded-lg flex items-center justify-center text-xs text-gray-400 font-medium"
-                whileHover={!prefersReducedMotion ? { opacity: 1, scale: 1.1 } : {}}
-                transition={{ duration: 0.2 }}
-              >
-                {client}
-              </motion.div>
-            ))}
+            {["Client 1", "Client 2", "Client 3", "Client 4", "Client 5"].map(
+              (client, i) => (
+                <motion.div
+                  key={i}
+                  className="w-24 h-12 bg-gray-200 rounded-lg flex items-center justify-center text-xs text-gray-400 font-medium"
+                  whileHover={
+                    !prefersReducedMotion ? { opacity: 1, scale: 1.1 } : {}
+                  }
+                  transition={{ duration: 0.2 }}
+                >
+                  {client}
+                </motion.div>
+              )
+            )}
           </div>
         </motion.div>
 

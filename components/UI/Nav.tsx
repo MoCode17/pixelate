@@ -25,12 +25,12 @@ const Nav = () => {
       className="fixed z-50 transition-all duration-300 w-full h-16 top-4 bg-transparent flex justify-center items-center"
     >
       <div
-        className={`rounded-full bg-white/50 py-4 backdrop-blur-xl shadow-lg border border-gray-200/50 ${
-          isScrolled ? "px-6 py-2" : "w-[90vw] max-w-7xl px-4 sm:px-6 lg:px-8"
+        className={`rounded-full bg-white/50 py-2 px-3 backdrop-blur-xl shadow-lg border border-gray-200/50 ${
+          isScrolled ? "w-[90vw] md:w-auto" : "w-[90vw] max-w-7xl lg:px-4"
         }`}
       >
         <div
-          className={`flex justify-between items-center transition-all duration-300 ${
+          className={`flex justify-between px-2 md:pl-4 lg:pl-4 items-center transition-all duration-300 ${
             isScrolled ? "space-x-6" : ""
           }`}
         >
@@ -45,13 +45,13 @@ const Nav = () => {
             </div> */}
             <Link
               href="/"
-              className="hover:cursor-pointer hover:scale-105 transition-transform duration-300"
+              className="hover:cursor-pointer hover:scale-105 transition-transform duration-300 sm:scale-110 md:scale-120 xl:scale-140 xl:px-8"
             >
               <Image
                 src="/images/PixelateLogo.svg"
                 alt="Pixelate Labs"
-                width={isScrolled ? 100 : 180}
-                height={isScrolled ? 30 : 36}
+                width={isScrolled ? 100 : 120}
+                height={isScrolled ? 30 : 32}
                 priority
                 className="object-contain"
               />
@@ -59,8 +59,8 @@ const Nav = () => {
           </div>
           {/* Links Section */}
           <div
-            className={`hidden md:flex transition-all duration-300 ${
-              isScrolled ? "space-x-4" : "space-x-16"
+            className={`hidden md:flex transition-all duration-300 px-2 ${
+              isScrolled ? "space-x-4" : "md:space-x-8 lg:space-x-12"
             }`}
           >
             <button
@@ -91,8 +91,8 @@ const Nav = () => {
           {/* CTA Section */}
           <Link
             href="/landing"
-            className={`bg-fanta hover:bg-fanta-dark hover:scale-105 hover:shadow-xl text-white rounded-full font-semibold transition-all duration-300 ${
-              isScrolled ? "px-4 py-1.5 text-sm" : "px-6 py-2"
+            className={`bg-fanta hover:bg-fanta-dark hover:scale-105 text-sm py-2 hover:shadow-xl px-4 text-white rounded-full font-semibold transition-all duration-300 ${
+              isScrolled ? "" : ""
             }`}
           >
             Get Started
