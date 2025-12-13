@@ -1,12 +1,14 @@
-import Hero from "@/components/sections/Hero";
-import Services from "@/components/sections/Services";
-import Testimonials from "@/components/sections/Testimonials";
+import Hero from "@/components/Sections/Hero";
+import Services from "@/components/Sections/Services";
+import Portfolio from "@/components/Sections/Portfolio";
+import Testimonials from "@/components/Sections/Testimonials";
 
 export default function Home() {
   return (
     <>
       <Hero />
       <Services />
+      <Portfolio />
       <Testimonials />
     </>
   );
