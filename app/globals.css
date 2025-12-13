@@ -28,7 +28,7 @@ body {
   --color-fanta-old: #ffc81b;
   --color-fanta: #ff9900;
   --color-fanta-dark-old: #e0af24;
-  --color-fanta-dark: #cc6600:
+  --color-fanta-dark: #cc6600;
 
   /* Background/Foreground */
   --color-background: var(--background);

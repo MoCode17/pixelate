@@ -22,13 +22,13 @@ const Testimonials = () => {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      name: "Sarah Mitchell",
-      role: "CEO",
-      company: "GrowthLabs Melbourne",
+      name: "Jesse Heffernan",
+      role: "Founder",
+      company: "Heffernan Electrical Automation",
       content:
-        "Pixelate transformed our online presence completely. Our conversion rate increased by 300% in just 3 months. The attention to detail and user experience is unmatched.",
+        "Pixelate understood our vision from day one. The design is beautiful, the performance is incredible, and our booking rate has increased by 180%. Highly recommend!",
       rating: 5,
-      gradient: "from-coral via-red-800 to-coral/80",
+      gradient: "from-yellow-500 to-orange-500/80",
     },
     {
       id: 2,
@@ -48,7 +48,7 @@ const Testimonials = () => {
       content:
         "The team's creativity and technical expertise exceeded all expectations. Our new website loads lightning-fast and looks stunning on every device. Sales have doubled!",
       rating: 5,
-      gradient: "from-fanta via-fanta-dark to-fanta/80",
+      gradient: "from-red-600 to-red-300",
     },
     {
       id: 4,
@@ -56,9 +56,9 @@ const Testimonials = () => {
       role: "Co-Founder",
       company: "FitLife Studios",
       content:
-        "Pixelate understood our vision from day one. The design is beautiful, the performance is incredible, and our booking rate has increased by 180%. Highly recommend!",
+        "Pixelate transformed our online presence completely. Our conversion rate increased by 300% in just 3 months. The attention to detail and user experience is unmatched.",
       rating: 5,
-      gradient: "from-electric via-green-200 to-sky",
+      gradient: "from-electric to-green-400",
     },
     {
       id: 5,
@@ -68,7 +68,7 @@ const Testimonials = () => {
       content:
         "Best decision we made for our business. The website perfectly captures our brand essence and the customer feedback has been overwhelmingly positive. Worth every penny!",
       rating: 5,
-      gradient: "from-coral via-fanta to-electric",
+      gradient: "from-coral to-indigo-400",
     },
   ];
 
@@ -128,7 +128,7 @@ const Testimonials = () => {
             }}
           />
           <motion.div
-            className="absolute bottom-20 right-10 w-96 h-96 bg-fanta/20 rounded-full blur-3xl"
+            className="absolute bottom-20 right-10 w-96 h-96 bg-fanta/30 rounded-full blur-3xl"
             animate={{
               scale: [1, 1.3, 1],
               opacity: [0.2, 0.4, 0.2],
@@ -182,24 +182,9 @@ const Testimonials = () => {
               className="relative"
             >
               <div
-                className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${activeTestimonial.gradient} p-1 shadow-2xl`}
+                className={`relative overflow-hidden rounded-3xl bg-gradient-to-br  p-1 shadow-2xl`}
               >
-                <div className="bg-white rounded-[22px] p-8 md:p-12 lg:p-16">
-                  {/* Quote Icon */}
-                  <motion.div
-                    className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${activeTestimonial.gradient} mb-6 shadow-lg`}
-                    whileHover={
-                      !prefersReducedMotion ? { scale: 1.1, rotate: 5 } : {}
-                    }
-                    transition={{
-                      type: "spring",
-                      stiffness: 400,
-                      damping: 30,
-                    }}
-                  >
-                    <Quote className="w-8 h-8 text-white" />
-                  </motion.div>
-
+                <div className="bg-transparent rounded-[22px] p-8 md:p-12 lg:p-16">
                   {/* Rating Stars */}
                   <div className="flex gap-1 mb-6">
                     {[...Array(activeTestimonial.rating)].map((_, i) => (
@@ -213,7 +198,7 @@ const Testimonials = () => {
                         }
                         transition={{ delay: i * 0.1, duration: 0.3 }}
                       >
-                        <Star className="w-6 h-6 fill-fanta text-fanta" />
+                        <Star className="w-6 h-6 fill-[#FFC81B] text-[#FFC81B]" />
                       </motion.div>
                     ))}
                   </div>
@@ -238,11 +223,6 @@ const Testimonials = () => {
                         {activeTestimonial.role} at {activeTestimonial.company}
                       </div>
                     </div>
-                  </div>
-
-                  {/* Background Decoration */}
-                  <div className="absolute top-0 right-0 w-64 h-64 opacity-5 pointer-events-none">
-                    <Quote className="w-full h-full" />
                   </div>
                 </div>
               </div>
@@ -302,10 +282,10 @@ const Testimonials = () => {
       >
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
-            { label: "Happy Clients", value: "100+" },
-            { label: "Projects Delivered", value: "150+" },
+            { label: "Happy Clients", value: "15+" },
+            { label: "Projects Delivered on time", value: "100%" },
             { label: "Average Rating", value: "5.0" },
-            { label: "Cups of Coffee", value: "2,500+" },
+            { label: "Support", value: "24/7" },
           ].map((stat, index) => (
             <motion.div
               key={index}
@@ -324,7 +304,7 @@ const Testimonials = () => {
         </div>
       </motion.div>
 
-      {/* Background Pattern */}
+      {/* Background Pattern 
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div
           className="absolute inset-0"
@@ -334,6 +314,7 @@ const Testimonials = () => {
           }}
         />
       </div>
+      */}
     </section>
   );
 };

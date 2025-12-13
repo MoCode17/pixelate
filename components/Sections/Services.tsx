@@ -68,8 +68,8 @@ const Services = () => {
         "Growth Marketing",
         "Ongoing Support & Maintenance",
       ],
-      gradient: "from-fanta via-fanta-dark to-fanta/80",
-      accentColor: "text-fanta-dark",
+      gradient: "from-fanta via-white to-fanta/80",
+      accentColor: "text-black",
     },
   ];
 
@@ -125,8 +125,7 @@ const Services = () => {
       {/* Sticky Services Cards */}
       <div className="relative max-w-7xl mx-auto px-6 py-6">
         <div className="flex flex-col gap-20">
-          {services.map((service, index) => {
-            const topOffset = 120 - index * 20;
+          {services.map((service) => {
             return (
               <div
                 key={service.id}
@@ -217,8 +216,10 @@ const Services = () => {
                               whileHover={!prefersReducedMotion ? { x: 5 } : {}}
                             >
                               <div
-                                className={`flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br ${service.gradient} flex items-center justify-center mt-0.5`}
-                              ></div>
+                                className={`relative flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br ${service.gradient} flex items-center justify-center mt-0.5`}
+                              >
+                                <div className="absolute inset-0 w-6 h-6 rounded-full bg-radial from-transparent from-35% to-zinc-900/20"></div>
+                              </div>
                               <span className="text-gray-700 font-medium">
                                 {feature}
                               </span>
