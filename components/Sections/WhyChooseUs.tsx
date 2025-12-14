@@ -347,9 +347,7 @@ const WhyChooseUs = () => {
                   <motion.div
                     className="mt-6 flex items-center gap-2 text-sm font-medium text-white/60 group-hover:text-white transition-colors"
                     initial={{ x: 0 }}
-                    whileHover={
-                      !prefersReducedMotion ? { x: 5 } : {}
-                    }
+                    whileHover={!prefersReducedMotion ? { x: 5 } : {}}
                   >
                     <span>Learn more</span>
                     <ArrowRight className="w-4 h-4" />
