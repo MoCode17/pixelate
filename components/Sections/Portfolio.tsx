@@ -10,7 +10,6 @@ import {
   useSpring,
 } from "framer-motion";
 import {
-  ExternalLink,
   ArrowUpRight,
   Sparkles,
   TrendingUp,
@@ -38,6 +37,289 @@ interface PortfolioItem {
   featured?: boolean;
   size?: "large" | "medium" | "small";
 }
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 60, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.7,
+      ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
+    },
+  },
+};
+
+const overlayVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.3,
+      ease: "easeOut" as const,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: 10,
+    transition: {
+      duration: 0.2,
+    },
+  },
+};
+
+const tagVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: (i: number) => ({
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delay: i * 0.05,
+      duration: 0.2,
+    },
+  }),
+};
+
+// Moved outside Portfolio component to prevent recreation on state changes
+const PortfolioCard = ({
+  item,
+  className = "",
+  isHovered,
+  onHover,
+  onLeave,
+  prefersReducedMotion,
+}: {
+  item: PortfolioItem;
+  className?: string;
+  isHovered: boolean;
+  onHover: () => void;
+  onLeave: () => void;
+  prefersReducedMotion: boolean | null;
+}) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
+  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["5deg", "-5deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-5deg", "5deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (prefersReducedMotion) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+    onLeave();
+  };
+
+  return (
+    <motion.div
+      variants={itemVariants}
+      className={`group relative ${className}`}
+      style={{
+        perspective: "1000px",
+        zIndex: isHovered ? 10 : 1,
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={onHover}
+      onMouseLeave={handleMouseLeave}
+    >
+      <motion.div
+        style={{
+          rotateX: prefersReducedMotion ? 0 : rotateX,
+          rotateY: prefersReducedMotion ? 0 : rotateY,
+          transformStyle: "preserve-3d",
+        }}
+        className="relative h-full"
+      >
+        {/* Gradient border wrapper */}
+        <div
+          className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${item.gradient} p-[2px] h-full shadow-xl transition-shadow duration-500 ${isHovered ? "shadow-2xl shadow-electric/20" : ""}`}
+        >
+          {/* Inner card */}
+          <div className="relative bg-gray-950 rounded-[22px] overflow-hidden h-full">
+            {/* Image container */}
+            <div className="relative overflow-hidden aspect-[16/10]">
+              {/* Placeholder gradient background for image */}
+              <motion.div
+                className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-30`}
+                animate={
+                  !prefersReducedMotion && isHovered
+                    ? { scale: 1.1 }
+                    : { scale: 1 }
+                }
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              />
+
+              {/* Geometric pattern overlay */}
+              <div className="absolute inset-0 opacity-20">
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+                    backgroundSize: "24px 24px",
+                  }}
+                />
+              </div>
+
+              {/* Floating mockup elements */}
+              <motion.div
+                className="absolute inset-4 flex items-center justify-center"
+                animate={
+                  !prefersReducedMotion && isHovered
+                    ? { y: -10, scale: 1.02 }
+                    : { y: 0, scale: 1 }
+                }
+                transition={{ duration: 0.4, ease: "easeOut" }}
+              >
+                {/* Browser mockup */}
+                <div className="w-full max-w-[85%] bg-gray-900/90 backdrop-blur rounded-xl overflow-hidden shadow-2xl border border-white/10">
+                  {/* Browser header */}
+                  <div className="flex items-center gap-2 px-4 py-3 bg-gray-800/80 border-b border-white/10">
+                    <div className="flex gap-1.5">
+                      <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                      <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                      <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                    </div>
+                    <div className="flex-1 mx-4">
+                      <div className="bg-gray-700/50 rounded-md h-5 flex items-center px-3">
+                        <span className="text-[10px] text-gray-400 truncate">
+                          {item.client.toLowerCase().replace(/\s+/g, "")}.com.au
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Browser content */}
+                  <div
+                    className={`aspect-[16/9] bg-gradient-to-br ${item.gradient} opacity-60`}
+                  >
+                    <div className="p-4 space-y-2">
+                      <div className="h-3 bg-white/20 rounded w-1/3" />
+                      <div className="h-2 bg-white/10 rounded w-2/3" />
+                      <div className="h-2 bg-white/10 rounded w-1/2" />
+                      <div className="mt-4 grid grid-cols-3 gap-2">
+                        <div className="h-8 bg-white/10 rounded" />
+                        <div className="h-8 bg-white/10 rounded" />
+                        <div className="h-8 bg-white/10 rounded" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Hover overlay */}
+              <AnimatePresence>
+                {isHovered && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/80 to-transparent flex items-end justify-start p-6"
+                  >
+                    <motion.div
+                      variants={overlayVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      className="space-y-3"
+                    >
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2">
+                        {item.tags.map((tag, i) => (
+                          <motion.span
+                            key={tag}
+                            custom={i}
+                            variants={tagVariants}
+                            initial="hidden"
+                            animate="visible"
+                            className="px-2.5 py-1 text-xs font-medium bg-white/10 backdrop-blur-sm text-white rounded-full border border-white/20"
+                          >
+                            {tag}
+                          </motion.span>
+                        ))}
+                      </div>
+                      {/* Description */}
+                      <p className="text-sm text-gray-300 line-clamp-2">
+                        {item.fullDescription}
+                      </p>
+                    </motion.div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Card content */}
+            <div className="p-6 space-y-4">
+              {/* Header */}
+              <div className="flex items-start justify-between gap-4">
+                <div className="space-y-1 flex-1">
+                  <p
+                    className={`text-sm font-medium text-${item.accentColor} opacity-80`}
+                  >
+                    {item.client}
+                  </p>
+                  <h3 className="text-xl font-bold text-white group-hover:text-white/90 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-400">{item.description}</p>
+                </div>
+                {/* Link button */}
+                <motion.button
+                  whileHover={!prefersReducedMotion ? { scale: 1.1 } : {}}
+                  whileTap={!prefersReducedMotion ? { scale: 0.95 } : {}}
+                  className={`flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br ${item.gradient} flex items-center justify-center text-white shadow-lg transition-transform`}
+                >
+                  <ArrowUpRight className="w-5 h-5" />
+                </motion.button>
+              </div>
+
+              {/* Results */}
+              {item.results && item.results.length > 0 && (
+                <div className="flex flex-wrap gap-4 pt-4 border-t border-white/10">
+                  {item.results.map((result, i) => (
+                    <motion.div
+                      key={result.metric}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.1, duration: 0.4 }}
+                      viewport={{ once: true }}
+                      className="flex items-center gap-2"
+                    >
+                      <span className={`text-${item.accentColor}`}>
+                        {result.icon}
+                      </span>
+                      <div>
+                        <p className="text-lg font-bold text-white">
+                          {result.value}
+                        </p>
+                        <p className="text-xs text-gray-500">{result.metric}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
 
 const Portfolio = () => {
   const prefersReducedMotion = useReducedMotion();
@@ -650,7 +932,14 @@ const Portfolio = () => {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7 }}
           >
-            <PortfolioCard item={featuredItem} className="max-w-4xl mx-auto" />
+            <PortfolioCard
+              item={featuredItem}
+              className="max-w-4xl mx-auto"
+              isHovered={hoveredId === featuredItem.id}
+              onHover={() => setHoveredId(featuredItem.id)}
+              onLeave={() => setHoveredId(null)}
+              prefersReducedMotion={prefersReducedMotion}
+            />
           </motion.div>
         )}
 
@@ -663,7 +952,14 @@ const Portfolio = () => {
           viewport={{ once: true, margin: "-50px" }}
         >
           {gridItems.map((item) => (
-            <PortfolioCard key={item.id} item={item} />
+            <PortfolioCard
+              key={item.id}
+              item={item}
+              isHovered={hoveredId === item.id}
+              onHover={() => setHoveredId(item.id)}
+              onLeave={() => setHoveredId(null)}
+              prefersReducedMotion={prefersReducedMotion}
+            />
           ))}
         </motion.div>
 
