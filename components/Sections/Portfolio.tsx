@@ -586,9 +586,6 @@ const Portfolio = () => {
           backgroundSize: "60px 60px",
         }}
       />
-      <div className="absolute inset-0 bg-red-500 text-5xl z-100">
-        HELOOOOOOOOO
-      </div>
 
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Section Header */}
