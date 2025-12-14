@@ -56,9 +56,21 @@ const Portfolio = () => {
       accentColor: "electric",
       tags: ["Next.js", "Three.js", "AI/ML", "Real Estate"],
       results: [
-        { metric: "Conversion Rate", value: "+340%", icon: <TrendingUp className="w-4 h-4" /> },
-        { metric: "Page Views", value: "2.1M", icon: <Eye className="w-4 h-4" /> },
-        { metric: "Load Time", value: "0.8s", icon: <Clock className="w-4 h-4" /> },
+        {
+          metric: "Conversion Rate",
+          value: "+340%",
+          icon: <TrendingUp className="w-4 h-4" />,
+        },
+        {
+          metric: "Page Views",
+          value: "2.1M",
+          icon: <Eye className="w-4 h-4" />,
+        },
+        {
+          metric: "Load Time",
+          value: "0.8s",
+          icon: <Clock className="w-4 h-4" />,
+        },
       ],
       featured: true,
       size: "large",
@@ -75,8 +87,16 @@ const Portfolio = () => {
       accentColor: "fanta",
       tags: ["React", "D3.js", "WebSocket", "Finance"],
       results: [
-        { metric: "Processing Speed", value: "+200%", icon: <TrendingUp className="w-4 h-4" /> },
-        { metric: "Daily Users", value: "50K+", icon: <Eye className="w-4 h-4" /> },
+        {
+          metric: "Processing Speed",
+          value: "+200%",
+          icon: <TrendingUp className="w-4 h-4" />,
+        },
+        {
+          metric: "Daily Users",
+          value: "50K+",
+          icon: <Eye className="w-4 h-4" />,
+        },
       ],
       size: "medium",
     },
@@ -92,8 +112,16 @@ const Portfolio = () => {
       accentColor: "coral",
       tags: ["Next.js", "Shopify", "AR", "Fashion"],
       results: [
-        { metric: "Revenue", value: "+180%", icon: <TrendingUp className="w-4 h-4" /> },
-        { metric: "Avg Session", value: "8.2m", icon: <Clock className="w-4 h-4" /> },
+        {
+          metric: "Revenue",
+          value: "+180%",
+          icon: <TrendingUp className="w-4 h-4" />,
+        },
+        {
+          metric: "Avg Session",
+          value: "8.2m",
+          icon: <Clock className="w-4 h-4" />,
+        },
       ],
       size: "medium",
     },
@@ -109,8 +137,16 @@ const Portfolio = () => {
       accentColor: "sky",
       tags: ["React", "WebRTC", "Node.js", "SaaS"],
       results: [
-        { metric: "User Growth", value: "+420%", icon: <TrendingUp className="w-4 h-4" /> },
-        { metric: "NPS Score", value: "72", icon: <Sparkles className="w-4 h-4" /> },
+        {
+          metric: "User Growth",
+          value: "+420%",
+          icon: <TrendingUp className="w-4 h-4" />,
+        },
+        {
+          metric: "NPS Score",
+          value: "72",
+          icon: <Sparkles className="w-4 h-4" />,
+        },
       ],
       size: "small",
     },
@@ -126,8 +162,16 @@ const Portfolio = () => {
       accentColor: "emerald",
       tags: ["React Native", "AI/ML", "Health", "Mobile"],
       results: [
-        { metric: "Downloads", value: "500K+", icon: <TrendingUp className="w-4 h-4" /> },
-        { metric: "Retention", value: "78%", icon: <Eye className="w-4 h-4" /> },
+        {
+          metric: "Downloads",
+          value: "500K+",
+          icon: <TrendingUp className="w-4 h-4" />,
+        },
+        {
+          metric: "Retention",
+          value: "78%",
+          icon: <Eye className="w-4 h-4" />,
+        },
       ],
       size: "small",
     },
@@ -143,8 +187,16 @@ const Portfolio = () => {
       accentColor: "fanta",
       tags: ["Next.js", "Node.js", "PostgreSQL", "Food"],
       results: [
-        { metric: "Orders", value: "+250%", icon: <TrendingUp className="w-4 h-4" /> },
-        { metric: "Locations", value: "50+", icon: <Layers className="w-4 h-4" /> },
+        {
+          metric: "Orders",
+          value: "+250%",
+          icon: <TrendingUp className="w-4 h-4" />,
+        },
+        {
+          metric: "Locations",
+          value: "50+",
+          icon: <Layers className="w-4 h-4" />,
+        },
       ],
       size: "small",
     },
@@ -219,8 +271,16 @@ const Portfolio = () => {
     const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
     const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
 
-    const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-    const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+    const rotateX = useTransform(
+      mouseYSpring,
+      [-0.5, 0.5],
+      ["10deg", "-10deg"]
+    );
+    const rotateY = useTransform(
+      mouseXSpring,
+      [-0.5, 0.5],
+      ["-10deg", "10deg"]
+    );
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
       if (prefersReducedMotion) return;
@@ -264,7 +324,11 @@ const Portfolio = () => {
         >
           {/* Gradient border wrapper */}
           <div
-            className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${item.gradient} p-[2px] h-full shadow-xl transition-shadow duration-500 ${isHovered ? "shadow-2xl shadow-electric/20" : ""}`}
+            className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${
+              item.gradient
+            } p-[2px] h-full shadow-xl transition-shadow duration-500 ${
+              isHovered ? "shadow-2xl shadow-electric/20" : ""
+            }`}
           >
             {/* Inner card */}
             <div className="relative bg-gray-950 rounded-[22px] overflow-hidden h-full">
@@ -314,13 +378,16 @@ const Portfolio = () => {
                       <div className="flex-1 mx-4">
                         <div className="bg-gray-700/50 rounded-md h-5 flex items-center px-3">
                           <span className="text-[10px] text-gray-400 truncate">
-                            {item.client.toLowerCase().replace(/\s+/g, "")}.com.au
+                            {item.client.toLowerCase().replace(/\s+/g, "")}
+                            .com.au
                           </span>
                         </div>
                       </div>
                     </div>
                     {/* Browser content */}
-                    <div className={`aspect-[16/9] bg-gradient-to-br ${item.gradient} opacity-60`}>
+                    <div
+                      className={`aspect-[16/9] bg-gradient-to-br ${item.gradient} opacity-60`}
+                    >
                       <div className="p-4 space-y-2">
                         <div className="h-3 bg-white/20 rounded w-1/3" />
                         <div className="h-2 bg-white/10 rounded w-2/3" />
@@ -382,7 +449,9 @@ const Portfolio = () => {
                 {/* Header */}
                 <div className="flex items-start justify-between gap-4">
                   <div className="space-y-1 flex-1">
-                    <p className={`text-sm font-medium text-${item.accentColor} opacity-80`}>
+                    <p
+                      className={`text-sm font-medium text-${item.accentColor} opacity-80`}
+                    >
                       {item.client}
                     </p>
                     <h3 className="text-xl font-bold text-white group-hover:text-white/90 transition-colors">
@@ -412,10 +481,16 @@ const Portfolio = () => {
                         viewport={{ once: true }}
                         className="flex items-center gap-2"
                       >
-                        <span className={`text-${item.accentColor}`}>{result.icon}</span>
+                        <span className={`text-${item.accentColor}`}>
+                          {result.icon}
+                        </span>
                         <div>
-                          <p className="text-lg font-bold text-white">{result.value}</p>
-                          <p className="text-xs text-gray-500">{result.metric}</p>
+                          <p className="text-lg font-bold text-white">
+                            {result.value}
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            {result.metric}
+                          </p>
                         </div>
                       </motion.div>
                     ))}
@@ -511,6 +586,9 @@ const Portfolio = () => {
           backgroundSize: "60px 60px",
         }}
       />
+      <div className="absolute inset-0 bg-red-500 text-5xl z-100">
+        HELOOOOOOOOO
+      </div>
 
       <div className="relative max-w-7xl mx-auto px-6">
         {/* Section Header */}
