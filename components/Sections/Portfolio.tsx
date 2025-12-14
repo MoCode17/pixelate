@@ -219,8 +219,8 @@ const Portfolio = () => {
     const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
     const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
 
-    const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-    const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+    const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["5deg", "-5deg"]);
+    const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-5deg", "5deg"]);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
       if (prefersReducedMotion) return;
@@ -249,6 +249,7 @@ const Portfolio = () => {
         className={`group relative ${className}`}
         style={{
           perspective: "1000px",
+          zIndex: isHovered ? 10 : 1,
         }}
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setHoveredId(item.id)}
@@ -260,7 +261,7 @@ const Portfolio = () => {
             rotateY: prefersReducedMotion ? 0 : rotateY,
             transformStyle: "preserve-3d",
           }}
-          className="relative h-full"
+          className="relative h-full isolate"
         >
           {/* Gradient border wrapper */}
           <div
@@ -433,7 +434,7 @@ const Portfolio = () => {
   const gridItems = portfolioItems.filter((item) => !item.featured);
 
   return (
-    <section className="relative bg-gray-950 py-24 md:py-32 overflow-hidden">
+    <section className="relative bg-gray-950 py-24 md:py-32 overflow-x-clip">
       {/* Animated background elements */}
       {!prefersReducedMotion && (
         <>
