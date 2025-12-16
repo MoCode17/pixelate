@@ -107,7 +107,10 @@ function StepCard({
   isInView: boolean;
   prefersReducedMotion: boolean | null;
 }) {
-  const colorClasses: Record<string, { bg: string; text: string; border: string; glow: string }> = {
+  const colorClasses: Record<
+    string,
+    { bg: string; text: string; border: string; glow: string }
+  > = {
     fanta: {
       bg: "bg-fanta/10",
       text: "text-fanta",
@@ -186,7 +189,9 @@ function StepCard({
           {step.details.map((detail, i) => (
             <motion.li
               key={i}
-              initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, x: -10 }}
+              initial={
+                prefersReducedMotion ? { opacity: 1 } : { opacity: 0, x: -10 }
+              }
               animate={
                 isInView
                   ? { opacity: 1, x: 0 }
@@ -302,14 +307,18 @@ export default function HowWeWork() {
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
-          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 30 }}
+          initial={
+            prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 30 }
+          }
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
           <motion.span
-            initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, scale: 0.9 }}
+            initial={
+              prefersReducedMotion ? { opacity: 1 } : { opacity: 0, scale: 0.9 }
+            }
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
@@ -390,7 +399,9 @@ export default function HowWeWork() {
 
         {/* Bottom Stats */}
         <motion.div
-          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 30 }}
+          initial={
+            prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 30 }
+          }
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
@@ -404,7 +415,11 @@ export default function HowWeWork() {
           ].map((stat, index) => (
             <motion.div
               key={index}
-              initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, scale: 0.9 }}
+              initial={
+                prefersReducedMotion
+                  ? { opacity: 1 }
+                  : { opacity: 0, scale: 0.9 }
+              }
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{
