@@ -62,8 +62,10 @@ export default function FinalCTA() {
           />
 
           {/* Secondary glow */}
-          <div className="absolute top-1/4 left-1/3 w-[400px] h-[400px] rounded-full
-            bg-gradient-radial from-electric/40 via-sky/20 to-transparent blur-3xl" />
+          <div
+            className="absolute top-1/4 left-1/3 w-[400px] h-[400px] rounded-full
+            bg-gradient-radial from-electric/40 via-sky/20 to-transparent blur-3xl"
+          />
 
           {/* Bottom horizon glow */}
           <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-fanta/20 via-coral/10 to-transparent" />
@@ -145,7 +147,9 @@ export default function FinalCTA() {
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6">
         <motion.div
-          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 40 }}
+          initial={
+            prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 40 }
+          }
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
@@ -153,7 +157,9 @@ export default function FinalCTA() {
         >
           {/* Decorative badge */}
           <motion.div
-            initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, scale: 0.8 }}
+            initial={
+              prefersReducedMotion ? { opacity: 1 } : { opacity: 0, scale: 0.8 }
+            }
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -173,7 +179,9 @@ export default function FinalCTA() {
           {/* Main Headline */}
           <motion.h2
             id="cta-heading"
-            initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 30 }}
+            initial={
+              prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 30 }
+            }
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -187,7 +195,9 @@ export default function FinalCTA() {
               </span>
               {/* Underline decoration */}
               <motion.svg
-                initial={prefersReducedMotion ? { pathLength: 1 } : { pathLength: 0 }}
+                initial={
+                  prefersReducedMotion ? { pathLength: 1 } : { pathLength: 0 }
+                }
                 whileInView={{ pathLength: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, delay: 0.5 }}
@@ -207,7 +217,13 @@ export default function FinalCTA() {
                   transition={{ duration: 1, delay: 0.5 }}
                 />
                 <defs>
-                  <linearGradient id="cta-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <linearGradient
+                    id="cta-gradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="0%"
+                  >
                     <stop offset="0%" stopColor="#ff9900" />
                     <stop offset="50%" stopColor="#ff6b6b" />
                     <stop offset="100%" stopColor="#0066ff" />
@@ -219,7 +235,9 @@ export default function FinalCTA() {
 
           {/* Subheadline */}
           <motion.p
-            initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+            initial={
+              prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }
+            }
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -228,13 +246,16 @@ export default function FinalCTA() {
             Let&apos;s discuss your project and bring your vision to life.
             <br className="hidden md:block" />
             <span className="text-white/60">
-              No pressure, no obligations — just a friendly chat about your goals.
+              No pressure, no obligations — just a friendly chat about your
+              goals.
             </span>
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
-            initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+            initial={
+              prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }
+            }
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -307,7 +328,9 @@ export default function FinalCTA() {
 
           {/* Decorative bottom elements */}
           <motion.div
-            initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+            initial={
+              prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }
+            }
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.7 }}
@@ -325,8 +348,12 @@ export default function FinalCTA() {
               ))}
             </div>
             <div className="text-left">
-              <div className="text-white font-semibold">Join 50+ Happy Clients</div>
-              <div className="text-white/60 text-sm">who transformed their business</div>
+              <div className="text-white font-semibold">
+                Join 50+ Happy Clients
+              </div>
+              <div className="text-white/60 text-sm">
+                who transformed their business
+              </div>
             </div>
           </motion.div>
         </motion.div>
@@ -340,7 +367,13 @@ export default function FinalCTA() {
           className="absolute bottom-0 w-full h-full"
         >
           <defs>
-            <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <linearGradient
+              id="wave-gradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
               <stop offset="0%" stopColor="rgba(255, 153, 0, 0.3)" />
               <stop offset="50%" stopColor="rgba(255, 107, 107, 0.2)" />
               <stop offset="100%" stopColor="rgba(0, 102, 255, 0.3)" />
@@ -349,7 +382,13 @@ export default function FinalCTA() {
           <motion.path
             d="M0,60 C300,120 600,0 900,60 C1050,90 1150,60 1200,60 L1200,120 L0,120 Z"
             fill="url(#wave-gradient)"
-            initial={prefersReducedMotion ? {} : { d: "M0,60 C300,120 600,0 900,60 C1050,90 1150,60 1200,60 L1200,120 L0,120 Z" }}
+            initial={
+              prefersReducedMotion
+                ? {}
+                : {
+                    d: "M0,60 C300,120 600,0 900,60 C1050,90 1150,60 1200,60 L1200,120 L0,120 Z",
+                  }
+            }
             animate={
               prefersReducedMotion
                 ? {}

@@ -249,7 +249,9 @@ const Services = () => {
                 <motion.div
                   className="w-full"
                   initial={
-                    prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 60 }
+                    prefersReducedMotion
+                      ? { opacity: 1 }
+                      : { opacity: 0, y: 60 }
                   }
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
@@ -277,22 +279,28 @@ const Services = () => {
                         <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
                           {/* Left Side - Content */}
                           <div className="space-y-6">
-                            {/* Icon with gradient background */}
-                            <motion.div
-                              className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${service.iconGradient} text-white shadow-lg`}
-                              whileHover={
-                                !prefersReducedMotion
-                                  ? { scale: 1.1, rotate: 5 }
-                                  : {}
-                              }
-                              transition={{
-                                type: "spring",
-                                stiffness: 400,
-                                damping: 30,
-                              }}
-                            >
-                              {service.icon}
-                            </motion.div>
+                            <div className="flex items-center gap-6 mb-2">
+                              {/* Icon with gradient background */}
+                              <motion.div
+                                className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${service.iconGradient} text-white shadow-lg`}
+                                whileHover={
+                                  !prefersReducedMotion
+                                    ? { scale: 1.1, rotate: 5 }
+                                    : {}
+                                }
+                                transition={{
+                                  type: "spring",
+                                  stiffness: 400,
+                                  damping: 30,
+                                }}
+                              >
+                                {service.icon}
+                              </motion.div>
+                              {/* Title */}
+                              <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
+                                {service.title}
+                              </h3>
+                            </div>
 
                             {/* Subtitle */}
                             <motion.span
@@ -309,11 +317,6 @@ const Services = () => {
                               {service.subtitle}
                             </motion.span>
 
-                            {/* Title */}
-                            <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
-                              {service.title}
-                            </h3>
-
                             {/* Description */}
                             <p className="text-lg text-gray-600 leading-relaxed">
                               {service.description}
@@ -325,7 +328,9 @@ const Services = () => {
                               bg-gradient-to-r ${service.gradient} text-white shadow-lg hover:shadow-xl
                               transition-all duration-300`}
                               whileHover={
-                                !prefersReducedMotion ? { scale: 1.05, x: 5 } : {}
+                                !prefersReducedMotion
+                                  ? { scale: 1.05, x: 5 }
+                                  : {}
                               }
                               whileTap={
                                 !prefersReducedMotion ? { scale: 0.98 } : {}
@@ -408,9 +413,7 @@ const Services = () => {
               <div className="relative p-10 md:p-16 text-center">
                 <motion.div
                   initial={
-                    prefersReducedMotion
-                      ? {}
-                      : { opacity: 0, scale: 0.9 }
+                    prefersReducedMotion ? {} : { opacity: 0, scale: 0.9 }
                   }
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
