@@ -37,50 +37,49 @@ export default function FinalCTA() {
       className="relative py-24 md:py-32 overflow-hidden"
       aria-labelledby="cta-heading"
     >
-      {/* Animated Sunset Background */}
+      {/* Dusk/Twilight Background - deep and dramatic */}
       <div className="absolute inset-0">
-        {/* Base gradient */}
+        {/* Base gradient - transitioning from sunset to night */}
+        <div className="absolute inset-0 bg-gradient-to-b from-orange-600/40 via-gray-900 to-gray-950" />
+
+        {/* Top transition from HowWeWork */}
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-gray-900/80 to-transparent" />
+
         <motion.div
           style={{ y: prefersReducedMotion ? 0 : backgroundY }}
           className="absolute inset-0"
         >
-          {/* Deep sky gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-electric/20 via-sky/10 to-gray-950" />
+          {/* Dusk warm remnants */}
+          <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-orange-500/30 via-amber-600/20 to-transparent" />
 
-          {/* Warm sunset layer */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-fanta/30 via-coral/20 to-transparent" />
+          {/* Twilight glow */}
+          <div className="absolute bottom-0 left-0 right-0 h-[50%] bg-gradient-to-t from-gray-950 via-orange-900/20 to-transparent" />
 
-          {/* Additional color wash */}
-          <div className="absolute inset-0 bg-gradient-to-bl from-electric/20 via-transparent to-fanta/20" />
-
-          {/* Sun orb - large glowing element */}
+          {/* Setting sun remnant - large glowing element */}
           <motion.div
             style={{ scale: prefersReducedMotion ? 1 : sunScale }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-            w-[800px] h-[800px] rounded-full
-            bg-gradient-radial from-fanta/50 via-coral/30 via-40% to-transparent blur-3xl"
+            className="absolute top-[20%] left-1/2 -translate-x-1/2
+            w-[700px] h-[500px] rounded-full
+            bg-gradient-radial from-orange-500/40 via-amber-600/25 via-40% to-transparent blur-3xl"
           />
 
-          {/* Secondary glow */}
+          {/* Twilight accent glow */}
           <div
-            className="absolute top-1/4 left-1/3 w-[400px] h-[400px] rounded-full
-            bg-gradient-radial from-electric/40 via-sky/20 to-transparent blur-3xl"
+            className="absolute top-1/3 right-1/4 w-[300px] h-[300px] rounded-full
+            bg-gradient-radial from-amber-500/30 via-orange-600/15 to-transparent blur-3xl"
           />
-
-          {/* Bottom horizon glow */}
-          <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-fanta/20 via-coral/10 to-transparent" />
         </motion.div>
 
-        {/* Floating geometric shapes */}
+        {/* Floating geometric shapes - warm twilight colors */}
         {!prefersReducedMotion &&
           floatingShapes.map((shape, index) => (
             <motion.div
               key={index}
-              className={`absolute rounded-full opacity-20 blur-sm
-                ${shape.color === "fanta" ? "bg-fanta" : ""}
-                ${shape.color === "electric" ? "bg-electric" : ""}
-                ${shape.color === "coral" ? "bg-coral" : ""}
-                ${shape.color === "sky" ? "bg-sky" : ""}
+              className={`absolute rounded-full opacity-25 blur-sm
+                ${shape.color === "fanta" ? "bg-amber-500" : ""}
+                ${shape.color === "electric" ? "bg-orange-400" : ""}
+                ${shape.color === "coral" ? "bg-amber-400" : ""}
+                ${shape.color === "sky" ? "bg-yellow-500" : ""}
               `}
               style={{
                 width: shape.size,
@@ -89,8 +88,8 @@ export default function FinalCTA() {
                 top: shape.top,
               }}
               animate={{
-                y: [0, -30, 0],
-                x: [0, 15, 0],
+                y: [0, -25, 0],
+                x: [0, 12, 0],
                 scale: [1, 1.1, 1],
               }}
               transition={{
@@ -102,27 +101,31 @@ export default function FinalCTA() {
             />
           ))}
 
-        {/* Animated particles */}
+        {/* Animated particles - stars emerging */}
         {!prefersReducedMotion && (
           <div className="absolute inset-0">
-            {[...Array(30)].map((_, i) => (
+            {[...Array(25)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute w-1 h-1 rounded-full"
+                className="absolute rounded-full"
                 style={{
                   left: `${Math.random() * 100}%`,
                   top: `${Math.random() * 100}%`,
+                  width: `${2 + Math.random() * 2}px`,
+                  height: `${2 + Math.random() * 2}px`,
                   backgroundColor:
-                    i % 3 === 0
-                      ? "rgba(255, 153, 0, 0.6)"
-                      : i % 3 === 1
-                      ? "rgba(0, 102, 255, 0.6)"
-                      : "rgba(255, 107, 107, 0.6)",
+                    i % 4 === 0
+                      ? "rgba(251, 191, 36, 0.6)"
+                      : i % 4 === 1
+                      ? "rgba(249, 115, 22, 0.5)"
+                      : i % 4 === 2
+                      ? "rgba(255, 255, 255, 0.4)"
+                      : "rgba(245, 158, 11, 0.5)",
                 }}
                 animate={{
                   opacity: [0.3, 0.8, 0.3],
                   scale: [0.8, 1.2, 0.8],
-                  y: [0, -20, 0],
+                  y: [0, -15, 0],
                 }}
                 transition={{
                   duration: 3 + Math.random() * 4,
@@ -136,9 +139,9 @@ export default function FinalCTA() {
 
         {/* Mesh overlay for texture */}
         <div
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0 opacity-5"
           style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.2) 1px, transparent 0)`,
             backgroundSize: "40px 40px",
           }}
         />
@@ -164,14 +167,14 @@ export default function FinalCTA() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full
-            bg-white/10 backdrop-blur-md border border-white/20
-            text-sm font-medium text-white mb-8"
+            bg-amber-500/20 backdrop-blur-md border border-amber-400/30
+            text-sm font-medium text-amber-200 mb-8"
           >
             <motion.div
               animate={prefersReducedMotion ? {} : { rotate: [0, 15, -15, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <Sparkles className="w-4 h-4 text-fanta" />
+              <Sparkles className="w-4 h-4 text-amber-400" />
             </motion.div>
             Let&apos;s Create Something Amazing
           </motion.div>
@@ -190,7 +193,7 @@ export default function FinalCTA() {
             Ready to Transform
             <br />
             <span className="relative">
-              <span className="bg-gradient-to-r from-fanta via-coral to-electric bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-amber-300 via-orange-400 to-yellow-300 bg-clip-text text-transparent">
                 Your Online Presence?
               </span>
               {/* Underline decoration */}
@@ -224,9 +227,9 @@ export default function FinalCTA() {
                     x2="100%"
                     y2="0%"
                   >
-                    <stop offset="0%" stopColor="#ff9900" />
-                    <stop offset="50%" stopColor="#ff6b6b" />
-                    <stop offset="100%" stopColor="#0066ff" />
+                    <stop offset="0%" stopColor="#fbbf24" />
+                    <stop offset="50%" stopColor="#f97316" />
+                    <stop offset="100%" stopColor="#fcd34d" />
                   </linearGradient>
                 </defs>
               </motion.svg>
@@ -266,9 +269,9 @@ export default function FinalCTA() {
               whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
               whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
               className="group relative px-8 py-4 rounded-full overflow-hidden
-              bg-gradient-to-r from-fanta to-coral text-white font-semibold text-lg
-              shadow-2xl shadow-fanta/30 transition-shadow duration-300
-              hover:shadow-fanta/50"
+              bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-500 text-white font-semibold text-lg
+              shadow-2xl shadow-orange-500/30 transition-shadow duration-300
+              hover:shadow-orange-500/50"
             >
               {/* Button shine effect */}
               <motion.div
@@ -290,9 +293,9 @@ export default function FinalCTA() {
               whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
               whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
               className="group px-8 py-4 rounded-full
-              bg-white/10 backdrop-blur-md border border-white/20
+              bg-white/10 backdrop-blur-md border border-amber-400/30
               text-white font-semibold text-lg
-              hover:bg-white/20 hover:border-white/30 transition-all duration-300"
+              hover:bg-white/15 hover:border-amber-400/50 transition-all duration-300"
             >
               <span className="flex items-center gap-2">
                 <FolderOpen className="w-5 h-5" />
@@ -341,7 +344,7 @@ export default function FinalCTA() {
               {[...Array(5)].map((_, i) => (
                 <div
                   key={i}
-                  className="w-10 h-10 rounded-full border-2 border-gray-950 bg-gradient-to-br from-fanta/50 to-electric/50 flex items-center justify-center text-white text-xs font-semibold"
+                  className="w-10 h-10 rounded-full border-2 border-gray-900 bg-gradient-to-br from-amber-400/60 to-orange-500/60 flex items-center justify-center text-white text-xs font-semibold"
                 >
                   {["JD", "AS", "MK", "TL", "RC"][i]}
                 </div>
@@ -351,7 +354,7 @@ export default function FinalCTA() {
               <div className="text-white font-semibold">
                 Join 50+ Happy Clients
               </div>
-              <div className="text-white/60 text-sm">
+              <div className="text-amber-200/70 text-sm">
                 who transformed their business
               </div>
             </div>
@@ -374,9 +377,9 @@ export default function FinalCTA() {
               x2="100%"
               y2="0%"
             >
-              <stop offset="0%" stopColor="rgba(255, 153, 0, 0.3)" />
-              <stop offset="50%" stopColor="rgba(255, 107, 107, 0.2)" />
-              <stop offset="100%" stopColor="rgba(0, 102, 255, 0.3)" />
+              <stop offset="0%" stopColor="rgba(251, 191, 36, 0.25)" />
+              <stop offset="50%" stopColor="rgba(245, 158, 11, 0.2)" />
+              <stop offset="100%" stopColor="rgba(249, 115, 22, 0.25)" />
             </linearGradient>
           </defs>
           <motion.path
