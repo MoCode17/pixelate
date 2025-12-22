@@ -19,16 +19,24 @@ body {
 }
 
 @theme {
-  /* Custom Colors */
+  /* Core Brand Colors */
   --color-coral: #ff6b6b;
   --color-coraldark: #ff2e2e;
   --color-electric: #0066ff;
   --color-sky: #3399ff;
   --color-sky-dark: #267acc;
-  --color-fanta-old: #ffc81b;
   --color-fanta: #ff9900;
-  --color-fanta-dark-old: #e0af24;
   --color-fanta-dark: #cc6600;
+
+  /* Sunrise/Sunset Palette - Time of Day Colors */
+  --color-dawn: #fef3e2;
+  --color-morning: #fff7ed;
+  --color-golden: #fbbf24;
+  --color-amber: #f59e0b;
+  --color-sunset: #f97316;
+  --color-dusk: #1e1b4b;
+  --color-twilight: #312e81;
+  --color-night: #0f0f23;
 
   /* Background/Foreground */
   --color-background: var(--background);
