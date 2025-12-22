@@ -112,28 +112,28 @@ function StepCard({
     { bg: string; text: string; border: string; glow: string }
   > = {
     fanta: {
-      bg: "bg-fanta/10",
-      text: "text-fanta",
-      border: "border-fanta/30",
-      glow: "shadow-fanta/20",
+      bg: "bg-amber-400/20",
+      text: "text-amber-300",
+      border: "border-amber-400/40",
+      glow: "shadow-amber-400/30",
     },
     coral: {
-      bg: "bg-coral/10",
-      text: "text-coral",
-      border: "border-coral/30",
-      glow: "shadow-coral/20",
+      bg: "bg-orange-400/20",
+      text: "text-orange-300",
+      border: "border-orange-400/40",
+      glow: "shadow-orange-400/30",
     },
     sky: {
-      bg: "bg-sky/10",
-      text: "text-sky",
-      border: "border-sky/30",
-      glow: "shadow-sky/20",
+      bg: "bg-yellow-400/20",
+      text: "text-yellow-300",
+      border: "border-yellow-400/40",
+      glow: "shadow-yellow-400/30",
     },
     electric: {
-      bg: "bg-electric/10",
-      text: "text-electric",
-      border: "border-electric/30",
-      glow: "shadow-electric/20",
+      bg: "bg-amber-500/20",
+      text: "text-amber-300",
+      border: "border-amber-500/40",
+      glow: "shadow-amber-500/30",
     },
   };
 
@@ -158,9 +158,9 @@ function StepCard({
     >
       {/* Step Card */}
       <div
-        className={`relative bg-gray-900/60 backdrop-blur-sm rounded-2xl p-6 border ${colors.border}
-        hover:border-opacity-60 transition-all duration-500 h-full
-        hover:shadow-lg ${colors.glow} hover:bg-gray-900/80`}
+        className={`relative bg-white/10 backdrop-blur-md rounded-2xl p-6 border ${colors.border}
+        hover:border-opacity-80 transition-all duration-500 h-full
+        hover:shadow-lg ${colors.glow} hover:bg-white/15`}
       >
         {/* Step Number Badge */}
         <div
@@ -222,7 +222,7 @@ function StepCard({
               duration: 0.6,
               delay: prefersReducedMotion ? 0 : index * 0.15 + 0.4,
             }}
-            className="h-full bg-gradient-to-r from-fanta/50 to-electric/50 origin-left"
+            className="h-full bg-gradient-to-r from-amber-400/50 to-orange-500/50 origin-left"
           />
         </div>
       )}
@@ -251,47 +251,50 @@ export default function HowWeWork() {
       className="relative py-24 md:py-32 overflow-hidden"
       aria-labelledby="process-heading"
     >
-      {/* Sunset Background */}
-      <div className="absolute inset-0 bg-gray-950">
+      {/* Sunset Background - dramatic transition to evening */}
+      <div className="absolute inset-0 bg-gradient-to-b from-orange-400/30 via-orange-600/40 to-gray-900">
+        {/* Top transition from golden hour */}
+        <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-orange-400/50 via-orange-500/30 to-transparent" />
+
         {/* Gradient layers creating sunset effect */}
         <motion.div
           style={{ y: prefersReducedMotion ? 0 : backgroundY }}
           className="absolute inset-0"
         >
-          {/* Sky gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950" />
+          {/* Sunset warm glow */}
+          <div className="absolute bottom-0 left-0 right-0 h-[70%] bg-gradient-to-t from-orange-600/30 via-orange-500/20 to-transparent" />
 
-          {/* Sunset glow - bottom */}
-          <div className="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-fanta/20 via-coral/10 to-transparent" />
+          {/* Purple/pink sunset tints */}
+          <div className="absolute top-[20%] left-0 right-0 h-[40%] bg-gradient-to-b from-amber-500/20 via-orange-500/15 to-transparent" />
 
-          {/* Blue sky tint - top */}
-          <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-electric/10 via-sky/5 to-transparent" />
-
-          {/* Sun orb */}
+          {/* Sun orb - setting sun */}
           <motion.div
             style={{ bottom: prefersReducedMotion ? "10%" : sunPosition }}
-            className="absolute left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full
-            bg-gradient-radial from-fanta/40 via-coral/20 to-transparent blur-3xl"
+            className="absolute left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full
+            bg-gradient-radial from-amber-400/50 via-orange-500/30 to-transparent blur-3xl"
           />
 
-          {/* Horizon glow */}
-          <div className="absolute bottom-[15%] left-0 right-0 h-32 bg-gradient-to-t from-fanta/30 via-coral/15 to-transparent blur-2xl" />
+          {/* Horizon glow - intense sunset colors */}
+          <div className="absolute bottom-[10%] left-0 right-0 h-48 bg-gradient-to-t from-orange-500/40 via-amber-400/25 to-transparent blur-2xl" />
         </motion.div>
 
-        {/* Animated particles/stars */}
+        {/* Animated particles/early stars */}
         {!prefersReducedMotion && (
           <div className="absolute inset-0">
-            {[...Array(20)].map((_, i) => (
+            {[...Array(15)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute w-1 h-1 bg-white/30 rounded-full"
+                className="absolute rounded-full"
                 style={{
                   left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 50}%`,
+                  top: `${10 + Math.random() * 40}%`,
+                  width: `${2 + Math.random() * 3}px`,
+                  height: `${2 + Math.random() * 3}px`,
+                  background: i % 3 === 0 ? "rgba(251, 191, 36, 0.6)" : i % 3 === 1 ? "rgba(249, 115, 22, 0.5)" : "rgba(255, 255, 255, 0.3)",
                 }}
                 animate={{
-                  opacity: [0.2, 0.8, 0.2],
-                  scale: [1, 1.5, 1],
+                  opacity: [0.3, 0.8, 0.3],
+                  scale: [1, 1.3, 1],
                 }}
                 transition={{
                   duration: 2 + Math.random() * 3,
@@ -323,8 +326,8 @@ export default function HowWeWork() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full
-            bg-gradient-to-r from-fanta/20 to-electric/20 border border-fanta/30
-            text-sm font-medium text-fanta mb-6"
+            bg-white/15 backdrop-blur-sm border border-white/20
+            text-sm font-medium text-white mb-6"
           >
             <ArrowRight className="w-4 h-4" />
             Our Process
@@ -335,12 +338,12 @@ export default function HowWeWork() {
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
           >
             How We{" "}
-            <span className="bg-gradient-to-r from-fanta via-coral to-electric bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-amber-300 via-orange-400 to-yellow-300 bg-clip-text text-transparent">
               Work
             </span>
           </h2>
 
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-white/80 max-w-2xl mx-auto">
             A proven 5-step process that transforms your ideas into
             high-performing digital experiences.
           </p>
@@ -348,13 +351,13 @@ export default function HowWeWork() {
 
         {/* Timeline Progress Bar (Desktop) */}
         <div className="hidden lg:block relative mb-12">
-          <div className="h-1 bg-gray-800 rounded-full overflow-hidden">
+          <div className="h-1 bg-white/20 rounded-full overflow-hidden">
             <motion.div
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }}
-              className="h-full bg-gradient-to-r from-fanta via-coral to-electric origin-left"
+              className="h-full bg-gradient-to-r from-amber-400 via-orange-500 to-yellow-400 origin-left"
             />
           </div>
 
@@ -372,7 +375,7 @@ export default function HowWeWork() {
                   type: "spring",
                   stiffness: 300,
                 }}
-                className="w-4 h-4 rounded-full bg-gradient-to-r from-fanta to-electric border-2 border-gray-950"
+                className="w-4 h-4 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 border-2 border-white/30"
               />
             ))}
           </div>
@@ -395,7 +398,7 @@ export default function HowWeWork() {
         </div>
 
         {/* Mobile Timeline Connector */}
-        <div className="lg:hidden absolute left-8 top-[200px] bottom-[200px] w-0.5 bg-gradient-to-b from-fanta via-coral to-electric opacity-30" />
+        <div className="lg:hidden absolute left-8 top-[200px] bottom-[200px] w-0.5 bg-gradient-to-b from-amber-400 via-orange-500 to-yellow-400 opacity-40" />
 
         {/* Bottom Stats */}
         <motion.div
@@ -426,12 +429,12 @@ export default function HowWeWork() {
                 duration: 0.5,
                 delay: prefersReducedMotion ? 0 : 0.4 + index * 0.1,
               }}
-              className="text-center p-4 rounded-xl bg-gray-900/40 backdrop-blur-sm border border-gray-800"
+              className="text-center p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20"
             >
-              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-fanta to-electric bg-clip-text text-transparent">
+              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">
                 {stat.value}
               </div>
-              <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
+              <div className="text-sm text-white/70 mt-1">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>

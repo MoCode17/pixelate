@@ -56,10 +56,10 @@ const Services = () => {
         "Responsive Layouts",
         "Prototyping & Wireframing",
       ],
-      gradient: "from-coral via-rose-400 to-fanta",
-      iconGradient: "from-coral to-fanta",
-      accentColor: "text-coral",
-      glowColor: "coral",
+      gradient: "from-amber-400 via-orange-400 to-amber-500",
+      iconGradient: "from-amber-500 to-orange-500",
+      accentColor: "text-amber-600",
+      glowColor: "amber",
     },
     {
       id: 2,
@@ -74,10 +74,10 @@ const Services = () => {
         "SEO Best Practices",
         "API Integration",
       ],
-      gradient: "from-electric via-sky to-cyan-400",
-      iconGradient: "from-electric to-sky",
-      accentColor: "text-electric",
-      glowColor: "electric",
+      gradient: "from-orange-400 via-amber-500 to-yellow-500",
+      iconGradient: "from-orange-500 to-amber-500",
+      accentColor: "text-orange-600",
+      glowColor: "orange",
     },
     {
       id: 3,
@@ -92,10 +92,10 @@ const Services = () => {
         "Growth Marketing",
         "Ongoing Support & Maintenance",
       ],
-      gradient: "from-fanta via-amber-400 to-yellow-300",
-      iconGradient: "from-fanta to-amber-400",
-      accentColor: "text-fanta",
-      glowColor: "fanta",
+      gradient: "from-yellow-400 via-amber-400 to-orange-400",
+      iconGradient: "from-yellow-500 to-amber-500",
+      accentColor: "text-yellow-600",
+      glowColor: "yellow",
     },
   ];
 
@@ -105,57 +105,57 @@ const Services = () => {
       className="relative py-24 md:py-32 overflow-hidden"
       aria-labelledby="services-heading"
     >
-      {/* Sunrise Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-orange-50/30 to-rose-50/50">
+      {/* Sunrise Morning Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-orange-50 via-amber-50/50 to-orange-100/30">
         {/* Animated gradient layers */}
         <motion.div
           style={{ y: prefersReducedMotion ? 0 : backgroundY }}
           className="absolute inset-0"
         >
-          {/* Top sky - light blue tint */}
-          <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-sky-100/50 via-slate-50 to-transparent" />
+          {/* Warm morning glow */}
+          <div className="absolute top-0 left-0 right-0 h-[60%] bg-gradient-to-b from-amber-100/40 via-orange-50/30 to-transparent" />
 
-          {/* Warm horizon glow */}
-          <div className="absolute bottom-0 left-0 right-0 h-[50%] bg-gradient-to-t from-fanta/10 via-coral/5 to-transparent" />
+          {/* Bottom transition - leads to next section */}
+          <div className="absolute bottom-0 left-0 right-0 h-[40%] bg-gradient-to-t from-amber-200/40 via-orange-100/20 to-transparent" />
 
           {/* Sun orb - rising effect */}
           <motion.div
             style={{ bottom: prefersReducedMotion ? "5%" : sunRise }}
             className="absolute left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full
-            bg-gradient-radial from-amber-200/60 via-fanta/20 to-transparent blur-3xl"
+            bg-gradient-radial from-amber-200/50 via-orange-200/30 to-transparent blur-3xl"
           />
 
           {/* Secondary warm glow */}
-          <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-t from-coral/15 via-rose-200/10 to-transparent blur-2xl rounded-full" />
+          <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-t from-amber-300/20 via-orange-200/10 to-transparent blur-2xl rounded-full" />
         </motion.div>
 
         {/* Floating particles - warm tones */}
         {!prefersReducedMotion && (
           <div className="absolute inset-0 pointer-events-none">
-            {[...Array(15)].map((_, i) => (
+            {[...Array(12)].map((_, i) => (
               <motion.div
                 key={i}
                 className="absolute rounded-full"
                 style={{
                   left: `${10 + Math.random() * 80}%`,
                   top: `${10 + Math.random() * 80}%`,
-                  width: `${4 + Math.random() * 6}px`,
-                  height: `${4 + Math.random() * 6}px`,
+                  width: `${3 + Math.random() * 5}px`,
+                  height: `${3 + Math.random() * 5}px`,
                   background: `linear-gradient(135deg, ${
                     i % 3 === 0
-                      ? "rgba(255, 140, 90, 0.4)"
+                      ? "rgba(251, 191, 36, 0.5)"
                       : i % 3 === 1
-                      ? "rgba(0, 102, 255, 0.3)"
-                      : "rgba(255, 107, 107, 0.3)"
+                      ? "rgba(245, 158, 11, 0.4)"
+                      : "rgba(249, 115, 22, 0.4)"
                   } 0%, transparent 100%)`,
                 }}
                 animate={{
-                  y: [0, -20, 0],
-                  opacity: [0.3, 0.7, 0.3],
-                  scale: [1, 1.2, 1],
+                  y: [0, -15, 0],
+                  opacity: [0.4, 0.8, 0.4],
+                  scale: [1, 1.15, 1],
                 }}
                 transition={{
-                  duration: 4 + Math.random() * 3,
+                  duration: 5 + Math.random() * 3,
                   repeat: Infinity,
                   ease: "easeInOut",
                   delay: Math.random() * 2,
@@ -167,9 +167,9 @@ const Services = () => {
 
         {/* Subtle grid pattern */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.02]"
           style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, #ff8c5a 1px, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(245, 158, 11, 0.5) 1px, transparent 0)`,
             backgroundSize: "48px 48px",
           }}
         />
@@ -188,8 +188,8 @@ const Services = () => {
         >
           {/* Badge */}
           <motion.div
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-fanta/10 via-coral/10 to-electric/10
-            backdrop-blur-sm rounded-full mb-6 border border-fanta/20 shadow-sm"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-amber-500/15 via-orange-500/15 to-yellow-500/15
+            backdrop-blur-sm rounded-full mb-6 border border-amber-400/30 shadow-sm"
             initial={
               prefersReducedMotion ? { opacity: 1 } : { opacity: 0, scale: 0.9 }
             }
@@ -197,8 +197,8 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <Sparkles className="w-4 h-4 text-fanta" />
-            <span className="text-sm font-semibold bg-gradient-to-r from-fanta to-coral bg-clip-text text-transparent uppercase tracking-wider">
+            <Sparkles className="w-4 h-4 text-amber-600" />
+            <span className="text-sm font-semibold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent uppercase tracking-wider">
               Our Services
             </span>
           </motion.div>
@@ -216,7 +216,7 @@ const Services = () => {
           >
             <span className="text-gray-900">Everything You Need to</span>
             <br />
-            <span className="bg-gradient-to-r from-fanta via-coral to-electric bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent">
               Succeed Online
             </span>
           </motion.h2>
@@ -404,11 +404,11 @@ const Services = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-fanta via-coral to-electric p-[2px]">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-amber-400 via-orange-500 to-yellow-500 p-[2px]">
             <div className="relative bg-white/95 backdrop-blur-xl rounded-[22px] overflow-hidden">
               {/* Background decoration */}
-              <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-fanta/20 to-transparent blur-3xl rounded-full" />
-              <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-electric/20 to-transparent blur-3xl rounded-full" />
+              <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-amber-400/20 to-transparent blur-3xl rounded-full" />
+              <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-orange-400/20 to-transparent blur-3xl rounded-full" />
 
               <div className="relative p-10 md:p-16 text-center">
                 <motion.div
@@ -418,10 +418,10 @@ const Services = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 }}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-fanta/10 to-electric/10 rounded-full mb-6"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-500/15 to-orange-500/15 rounded-full mb-6"
                 >
-                  <Sparkles className="w-4 h-4 text-fanta" />
-                  <span className="text-sm font-semibold text-fanta">
+                  <Sparkles className="w-4 h-4 text-amber-600" />
+                  <span className="text-sm font-semibold text-amber-700">
                     Let's Create Together
                   </span>
                 </motion.div>
@@ -429,7 +429,7 @@ const Services = () => {
                 <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
                   <span className="text-gray-900">Ready to Transform Your</span>
                   <br />
-                  <span className="bg-gradient-to-r from-fanta via-coral to-electric bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent">
                     Digital Presence?
                   </span>
                 </h3>
@@ -441,7 +441,7 @@ const Services = () => {
                 </p>
 
                 <motion.button
-                  className="group px-8 py-4 bg-gradient-to-r from-fanta via-coral to-electric text-white rounded-full
+                  className="group px-8 py-4 bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-500 text-white rounded-full
                   font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center gap-3"
                   whileHover={!prefersReducedMotion ? { scale: 1.05 } : {}}
                   whileTap={!prefersReducedMotion ? { scale: 0.98 } : {}}
@@ -460,15 +460,15 @@ const Services = () => {
                   transition={{ delay: 0.4 }}
                 >
                   <span className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                    <CheckCircle2 className="w-4 h-4 text-amber-500" />
                     No commitment required
                   </span>
                   <span className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                    <CheckCircle2 className="w-4 h-4 text-amber-500" />
                     Response within 24hrs
                   </span>
                   <span className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                    <CheckCircle2 className="w-4 h-4 text-amber-500" />
                     Expert consultation
                   </span>
                 </motion.div>
