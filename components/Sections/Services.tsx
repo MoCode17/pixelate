@@ -238,13 +238,15 @@ const Services = () => {
         </motion.div>
 
         {/* Sticky Services Cards */}
-        <div className="relative py-6">
-          <div className="flex flex-col gap-16 md:gap-20">
+        <div className="relative">
+          <div className="flex flex-col">
             {services.map((service, index) => (
               <div
                 key={service.id}
-                className="sticky flex items-center justify-center"
-                style={{ top: `${100 + index * 20}px` }}
+                className={`sticky flex items-start justify-center ${
+                  index === services.length - 1 ? "" : "min-h-[80vh]"
+                }`}
+                style={{ top: `${100 + index * 30}px` }}
               >
                 <motion.div
                   className="w-full"
