@@ -31,8 +31,12 @@ const HeroServicesWrapper = () => {
 
   // Sun expansion - starts small at bottom, expands to fill screen
   const sunScale = useTransform(smoothProgress, [0, 0.3], [1, 3.5]);
-  const sunY = useTransform(smoothProgress, [0, 0.3], ["0%", "-40%"]);
-  const sunOpacity = useTransform(smoothProgress, [0, 0.15, 0.35], [0.7, 1, 0.3]);
+  const sunY = useTransform(smoothProgress, [0, 0.3], ["70%", "-40%"]);
+  const sunOpacity = useTransform(
+    smoothProgress,
+    [0, 0.15, 0.35],
+    [0.7, 1, 0.3]
+  );
 
   // Gradient warmth increases as sun rises
   const gradientProgress = useTransform(smoothProgress, [0, 0.25], [0, 1]);
@@ -203,8 +207,8 @@ const HeroServicesWrapper = () => {
                   key={i}
                   className="absolute rounded-full pointer-events-none"
                   style={{
-                    top: `${15 + (i * 7) % 60}%`,
-                    left: `${8 + (i * 13) % 80}%`,
+                    top: `${15 + ((i * 7) % 60)}%`,
+                    left: `${8 + ((i * 13) % 80)}%`,
                     width: `${3 + (i % 3) * 2}px`,
                     height: `${3 + (i % 3) * 2}px`,
                     background:
@@ -233,7 +237,7 @@ const HeroServicesWrapper = () => {
 
           {/* Hero Content */}
           <motion.div
-            className="relative z-10 h-full flex flex-col justify-center items-center px-6"
+            className="relative z-10 h-full flex flex-col justify-center items-center px-6 mt-12"
             style={
               !prefersReducedMotion
                 ? {
@@ -251,7 +255,10 @@ const HeroServicesWrapper = () => {
               animate="visible"
             >
               {/* Social Proof Badge */}
-              <motion.div {...animationProps} className="inline-flex items-center gap-2 mb-8">
+              <motion.div
+                {...animationProps}
+                className="inline-flex items-center gap-2 mb-8"
+              >
                 <div className="flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-fanta/20">
                   <Sparkles className="w-4 h-4 text-fanta" />
                   <span className="text-sm font-medium text-gray-700">
@@ -285,8 +292,9 @@ const HeroServicesWrapper = () => {
                 {...animationProps}
                 className="text-md md:text-lg text-gray-600 mb-12 max-w-2xl mx-auto"
               >
-                We help growing businesses stand out online with stunning design,
-                seamless user experience, and lightning-fast performance.
+                We help growing businesses stand out online with stunning
+                design, seamless user experience, and lightning-fast
+                performance.
               </motion.p>
 
               {/* CTA Buttons */}
@@ -337,7 +345,9 @@ const HeroServicesWrapper = () => {
                   }}
                 >
                   <div className="flex flex-col items-center gap-2">
-                    <span className="text-sm text-gray-500 font-medium">Scroll to explore</span>
+                    <span className="text-sm text-gray-500 font-medium">
+                      Scroll to explore
+                    </span>
                     <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center p-2">
                       <motion.div
                         className="w-1.5 h-1.5 bg-fanta rounded-full"
@@ -365,7 +375,8 @@ const HeroServicesWrapper = () => {
         <div
           className="absolute -top-40 left-0 right-0 h-40 pointer-events-none"
           style={{
-            background: "linear-gradient(to bottom, transparent 0%, rgba(255, 250, 245, 0.8) 50%, rgb(255, 252, 250) 100%)",
+            background:
+              "linear-gradient(to bottom, transparent 0%, rgba(255, 250, 245, 0.8) 50%, rgb(255, 252, 250) 100%)",
           }}
         />
         <Services />
