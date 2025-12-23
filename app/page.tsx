@@ -1,5 +1,4 @@
-import Hero from "@/components/Sections/Hero";
-import Services from "@/components/Sections/Services";
+import HeroServicesWrapper from "@/components/Sections/HeroServicesWrapper";
 import Portfolio from "@/components/Sections/Portfolio";
 import WhyChooseUs from "@/components/Sections/WhyChooseUs";
 import Testimonials from "@/components/Sections/Testimonials";
@@ -9,8 +8,7 @@ import FinalCTA from "@/components/Sections/FinalCTA";
 export default function Home() {
   return (
     <>
-      <Hero />
-      <Services />
+      <HeroServicesWrapper />
       <Portfolio />
       <WhyChooseUs />
       <Testimonials />
