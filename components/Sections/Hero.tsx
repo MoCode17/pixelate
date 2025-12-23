@@ -110,7 +110,7 @@ const Hero = () => {
 
       {/* Main Content */}
       <motion.div
-        className="relativer z-10 max-w-7xl mx-auto px-6 py-20 mt-12 text-center overflow-hidden"
+        className="relative z-10 max-w-7xl mx-auto px-6 py-20 mt-12 text-center overflow-hidden"
         variants={containerVariants}
         initial="hidden"
         animate="visible"

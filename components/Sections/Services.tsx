@@ -122,7 +122,7 @@ const Services = () => {
           <motion.div
             style={{ bottom: prefersReducedMotion ? "5%" : sunRise }}
             className="absolute left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full
-            bg-gradient-radial from-amber-200/60 via-fanta/20 to-transparent blur-3xl"
+            bg-gradient-radial from-amber-400/60 via-fanta/20 to-transparent blur-3xl"
           />
 
           {/* Secondary warm glow */}
