@@ -39,8 +39,7 @@ const Services = () => {
     offset: ["start end", "end start"],
   });
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const sunRise = useTransform(scrollYProgress, [0, 0.5], ["120%", "60%"]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
 
   const services: Service[] = [
     {
@@ -105,71 +104,87 @@ const Services = () => {
       className="relative py-24 md:py-32 overflow-hidden"
       aria-labelledby="services-heading"
     >
-      {/* Sunrise Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-orange-50/30 to-rose-50/50">
+      {/* Seamless Sunrise Background - continues from Hero */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#fffcfa] via-[#fff8f2] to-white">
         {/* Animated gradient layers */}
         <motion.div
           style={{ y: prefersReducedMotion ? 0 : backgroundY }}
           className="absolute inset-0"
         >
-          {/* Top sky - light blue tint */}
-          <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-sky-100/50 via-slate-50 to-transparent" />
+          {/* Warm ambient glow - top */}
+          <div className="absolute top-0 left-0 right-0 h-[50%] bg-gradient-to-b from-fanta/8 via-coral/5 to-transparent" />
 
-          {/* Warm horizon glow */}
-          <div className="absolute bottom-0 left-0 right-0 h-[50%] bg-gradient-to-t from-fanta/10 via-coral/5 to-transparent" />
-
-          {/* Sun orb - rising effect */}
-          <motion.div
-            style={{ bottom: prefersReducedMotion ? "5%" : sunRise }}
-            className="absolute left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full
-            bg-gradient-radial from-amber-400/60 via-fanta/20 to-transparent blur-3xl"
+          {/* Soft warm radial at top center - continues sunrise feel */}
+          <div
+            className="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[400px] rounded-full blur-3xl"
+            style={{
+              background: "radial-gradient(ellipse, rgba(255, 153, 0, 0.15) 0%, rgba(255, 180, 120, 0.08) 50%, transparent 80%)",
+            }}
           />
 
-          {/* Secondary warm glow */}
-          <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gradient-to-t from-coral/15 via-rose-200/10 to-transparent blur-2xl rounded-full" />
+          {/* Electric blue accent - bottom right */}
+          <div
+            className="absolute bottom-20 right-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-30"
+            style={{
+              background: "radial-gradient(circle, rgba(0, 102, 255, 0.15) 0%, transparent 70%)",
+            }}
+          />
+
+          {/* Coral accent - bottom left */}
+          <div
+            className="absolute bottom-10 left-10 w-[400px] h-[400px] rounded-full blur-3xl opacity-25"
+            style={{
+              background: "radial-gradient(circle, rgba(255, 107, 107, 0.2) 0%, transparent 70%)",
+            }}
+          />
         </motion.div>
 
         {/* Floating particles - warm tones */}
         {!prefersReducedMotion && (
           <div className="absolute inset-0 pointer-events-none">
-            {[...Array(15)].map((_, i) => (
+            {[...Array(10)].map((_, i) => (
               <motion.div
                 key={i}
                 className="absolute rounded-full"
                 style={{
-                  left: `${10 + Math.random() * 80}%`,
-                  top: `${10 + Math.random() * 80}%`,
-                  width: `${4 + Math.random() * 6}px`,
-                  height: `${4 + Math.random() * 6}px`,
-                  background: `linear-gradient(135deg, ${
+                  left: `${15 + (i * 17) % 70}%`,
+                  top: `${20 + (i * 13) % 60}%`,
+                  width: `${4 + (i % 3) * 2}px`,
+                  height: `${4 + (i % 3) * 2}px`,
+                  background:
                     i % 3 === 0
-                      ? "rgba(255, 140, 90, 0.4)"
+                      ? "rgba(255, 153, 0, 0.5)"
                       : i % 3 === 1
-                      ? "rgba(0, 102, 255, 0.3)"
-                      : "rgba(255, 107, 107, 0.3)"
-                  } 0%, transparent 100%)`,
+                      ? "rgba(0, 102, 255, 0.35)"
+                      : "rgba(255, 107, 107, 0.4)",
+                  boxShadow:
+                    i % 3 === 0
+                      ? "0 0 12px rgba(255, 153, 0, 0.3)"
+                      : i % 3 === 1
+                      ? "0 0 12px rgba(0, 102, 255, 0.2)"
+                      : "0 0 12px rgba(255, 107, 107, 0.25)",
                 }}
                 animate={{
-                  y: [0, -20, 0],
-                  opacity: [0.3, 0.7, 0.3],
-                  scale: [1, 1.2, 1],
+                  y: [0, -15, 0],
+                  opacity: [0.4, 0.8, 0.4],
+                  scale: [1, 1.15, 1],
                 }}
                 transition={{
-                  duration: 4 + Math.random() * 3,
+                  duration: 4 + (i % 3),
                   repeat: Infinity,
                   ease: "easeInOut",
-                  delay: Math.random() * 2,
+                  delay: i * 0.4,
                 }}
               />
             ))}
           </div>
         )}
 
-        {/* Subtle grid pattern */}
+        {/* Subtle warm grid pattern */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.02]"
           style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, #ff8c5a 1px, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255, 140, 90, 0.8) 1px, transparent 0)`,
             backgroundSize: "48px 48px",
           }}
         />
