@@ -261,7 +261,7 @@ const Services = () => {
             {services.map((service, index) => (
               <div
                 key={service.id}
-                className={`md:sticky flex items-start justify-center md:h-[60vh] md:top-[100px]`}
+                className={`sticky flex items-start justify-center h-[100vh] md:h-[60vh] top-[100px]`}
               >
                 <motion.div
                   className="w-full"
