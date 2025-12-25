@@ -175,7 +175,7 @@ const Testimonials = () => {
               <div
                 className={`relative overflow-hidden rounded-3xl bg-gradient-to-r from-electric via-fanta to-coral p-1 shadow-xl transition-shadow duration-500 hover:shadow-2xl`}
               >
-                <div className="bg-white rounded-[22px] p-12">
+                <div className="bg-white rounded-[22px] p-6 sm:p-8 md:p-12">
                   {/* Rating Stars */}
                   <div className="flex gap-1 mb-6">
                     {[...Array(activeTestimonial.rating)].map((_, i) => (
@@ -202,7 +202,7 @@ const Testimonials = () => {
                   {/* Author Info */}
                   <div className="flex items-center gap-4">
                     <div
-                      className={`w-16 h-16 rounded-full bg-gradient-to-br ${activeTestimonial.gradient} flex items-center justify-center text-white text-2xl font-bold shadow-lg`}
+                      className={`flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br ${activeTestimonial.gradient} flex items-center justify-center text-white text-xl sm:text-2xl font-bold shadow-lg`}
                     >
                       {activeTestimonial.name.charAt(0)}
                     </div>
@@ -220,8 +220,8 @@ const Testimonials = () => {
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation Buttons */}
-          <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between px-4 md:-mx-20 pointer-events-none">
+          {/* Navigation Buttons - Hidden on mobile, shown on desktop sides */}
+          <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 left-0 right-0 justify-between md:-mx-20 pointer-events-none">
             <motion.button
               onClick={previousTestimonial}
               className="pointer-events-auto w-14 h-14 rounded-full bg-white shadow-xl border-2 border-electric/20 flex items-center justify-center text-electric hover:bg-electric hover:text-white transition-all duration-300"
@@ -242,6 +242,29 @@ const Testimonials = () => {
               <ChevronRight className="w-6 h-6" />
             </motion.button>
           </div>
+        </div>
+
+        {/* Mobile Navigation Buttons - Below card */}
+        <div className="flex md:hidden justify-center gap-4 mt-6">
+          <motion.button
+            onClick={previousTestimonial}
+            className="w-12 h-12 rounded-full bg-white shadow-xl border-2 border-electric/20 flex items-center justify-center text-electric hover:bg-electric hover:text-white transition-all duration-300"
+            whileHover={!prefersReducedMotion ? { scale: 1.1 } : {}}
+            whileTap={!prefersReducedMotion ? { scale: 0.9 } : {}}
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </motion.button>
+
+          <motion.button
+            onClick={nextTestimonial}
+            className="w-12 h-12 rounded-full bg-white shadow-xl border-2 border-electric/20 flex items-center justify-center text-electric hover:bg-electric hover:text-white transition-all duration-300"
+            whileHover={!prefersReducedMotion ? { scale: 1.1 } : {}}
+            whileTap={!prefersReducedMotion ? { scale: 0.9 } : {}}
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </motion.button>
         </div>
 
         {/* Dots Navigation */}
