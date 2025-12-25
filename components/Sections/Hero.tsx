@@ -35,7 +35,7 @@ const Hero = () => {
         ease: [0.25, 0.1, 0.25, 1],
       },
     },
-  };
+  } as const;
 
   const floatingVariants = {
     animate: {
@@ -53,8 +53,8 @@ const Hero = () => {
     ? {}
     : {
         variants: itemVariants,
-        initial: "hidden",
-        animate: "visible",
+        initial: "hidden" as const,
+        animate: "visible" as const,
       };
 
   return (
@@ -98,10 +98,13 @@ const Hero = () => {
                 top: `${20 + i * 15}%`,
                 left: `${10 + i * 15}%`,
               }}
-              variants={floatingVariants}
-              animate="animate"
+              animate={{
+                y: [0, -20, 0],
+              }}
               transition={{
-                delay: i * 0.5,
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
               }}
             />
           ))}

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import {
   Users,
   Clock,
@@ -110,7 +110,7 @@ const WhyChooseUs = () => {
     },
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -121,7 +121,7 @@ const WhyChooseUs = () => {
     },
   };
 
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 60, scale: 0.95 },
     visible: {
       opacity: 1,
@@ -134,7 +134,7 @@ const WhyChooseUs = () => {
     },
   };
 
-  const iconVariants = {
+  const iconVariants: Variants = {
     initial: { scale: 1 },
     hover: {
       scale: 1.1,
