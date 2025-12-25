@@ -262,7 +262,7 @@ export default function HowWeWork() {
           <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950" />
 
           {/* Sunset glow - bottom */}
-          <div className="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-fanta/20 via-coral/10 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-sky-700 via-coral/10 to-transparent" />
 
           {/* Blue sky tint - top */}
           <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-electric/10 via-sky/5 to-transparent" />
@@ -271,7 +271,7 @@ export default function HowWeWork() {
           <motion.div
             style={{ bottom: prefersReducedMotion ? "10%" : sunPosition }}
             className="absolute left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full
-            bg-gradient-radial from-fanta/40 via-coral/20 to-transparent blur-3xl"
+            bg-gradient-radial from-fanta/45 via-coral/20 to-transparent blur-3xl"
           />
 
           {/* Horizon glow */}

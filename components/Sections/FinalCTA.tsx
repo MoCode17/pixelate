@@ -45,7 +45,7 @@ export default function FinalCTA() {
           className="absolute inset-0"
         >
           {/* Deep sky gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-electric via-sky/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-sky-700 via-sky/30 to-transparent" />
 
           {/* Warm sunset layer */}
           <div className="absolute inset-0 bg-gradient-to-tr from-fanta/50 via-coral/20 to-transparent" />

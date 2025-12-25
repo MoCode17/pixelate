@@ -101,7 +101,7 @@ const Services = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 md:py-32 overflow-hidden"
+      className="relative py-24 md:py-32"
       aria-labelledby="services-heading"
     >
       {/* Seamless Sunrise Background - continues from Hero */}
@@ -262,9 +262,8 @@ const Services = () => {
               <div
                 key={service.id}
                 className={`sticky flex items-start justify-center ${
-                  index === services.length - 1 ? "" : "min-h-[80vh]"
-                }`}
-                style={{ top: `${100 + index * 30}px` }}
+                  index === services.length - 1 ? "h-[60vh]" : "h-[60vh]"
+                } top-[100px]`}
               >
                 <motion.div
                   className="w-full"
@@ -368,10 +367,12 @@ const Services = () => {
 
                           {/* Right Side - Features */}
                           <div className="space-y-3">
-                            <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-5 flex items-center gap-2">
-                              <Globe className="w-4 h-4" />
-                              What's Included
-                            </h4>
+                            <div className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-5 flex items-center gap-4 p-4">
+                              <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center">
+                                <Globe className="w-4 h-4 " />
+                              </div>
+                              <h4 className="">What's Included</h4>
+                            </div>
                             <div className="space-y-3">
                               {service.features.map((feature, i) => (
                                 <motion.div
@@ -416,7 +417,7 @@ const Services = () => {
 
         {/* Bottom CTA Section */}
         <motion.div
-          className="mt-24 md:mt-32"
+          className="mt-6 md:mt-12"
           initial={
             prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 30 }
           }

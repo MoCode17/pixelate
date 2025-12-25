@@ -18,6 +18,7 @@ interface Testimonial {
 const Testimonials = () => {
   const prefersReducedMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [customDirection, setCustomDirection] = useState<-1 | 1>(1);
 
   const testimonials: Testimonial[] = [
     {
@@ -74,12 +75,14 @@ const Testimonials = () => {
 
   const nextTestimonial = () => {
     setActiveIndex((prev) => (prev + 1) % testimonials.length);
+    setCustomDirection(1);
   };
 
   const previousTestimonial = () => {
     setActiveIndex(
       (prev) => (prev - 1 + testimonials.length) % testimonials.length
     );
+    setCustomDirection(-1);
   };
 
   const activeTestimonial = testimonials[activeIndex];
@@ -111,37 +114,18 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="relative bg-gradient-to-b from-white to-gray-50 py-20 md:py-32 overflow-hidden">
-      {/* Background Decorations */}
-      {!prefersReducedMotion && (
-        <>
-          <motion.div
-            className="absolute top-20 left-10 w-72 h-72 bg-electric/20 rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-          <motion.div
-            className="absolute bottom-20 right-10 w-96 h-96 bg-fanta/30 rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.3, 1],
-              opacity: [0.2, 0.4, 0.2],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1,
-            }}
-          />
-        </>
-      )}
+    <section className="relative bg-gradient-to-b from-gray-950 to-gray-900 py-20 md:py-32 overflow-hidden">
+      {/* Blue sky tint - bottom */}
+      <div className="absolute top-0 left-0 bottom-0 h-[20%] bg-gradient-to-t from-electric/10 via-sky/5 to-transparent" />
+
+      {/* Grid pattern overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage: `linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)`,
+          backgroundSize: "60px 60px",
+        }}
+      />
 
       {/* Section Header */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 mb-16">
@@ -158,8 +142,15 @@ const Testimonials = () => {
               Client Stories
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-electric to-gray-900 bg-clip-text text-transparent">
-            Loved by Melbourne Businesses
+          {/* Heading */}
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+              Loved by
+            </span>
+            <br />
+            <span className="bg-gradient-to-r from-electric via-fanta to-coral bg-clip-text text-transparent">
+              Melbourne Businesses
+            </span>
           </h2>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
             Don&apos;t just take our word for it—hear what our clients have to
@@ -171,10 +162,10 @@ const Testimonials = () => {
       {/* Main Testimonial Card - Carousel */}
       <div className="relative z-10 max-w-5xl mx-auto px-6">
         <div className="relative">
-          <AnimatePresence mode="wait" custom={1}>
+          <AnimatePresence mode="wait" custom={customDirection}>
             <motion.div
               key={activeIndex}
-              custom={1}
+              custom={customDirection}
               variants={prefersReducedMotion ? {} : cardVariants}
               initial={prefersReducedMotion ? {} : "enter"}
               animate="center"
@@ -182,9 +173,9 @@ const Testimonials = () => {
               className="relative"
             >
               <div
-                className={`relative overflow-hidden rounded-3xl bg-gradient-to-br  p-1 shadow-2xl`}
+                className={`relative overflow-hidden rounded-3xl bg-gradient-to-r from-electric via-fanta to-coral p-1 shadow-xl transition-shadow duration-500 hover:shadow-2xl`}
               >
-                <div className="bg-transparent rounded-[22px] p-8 md:p-12 lg:p-16">
+                <div className="bg-white rounded-[22px] p-12">
                   {/* Rating Stars */}
                   <div className="flex gap-1 mb-6">
                     {[...Array(activeTestimonial.rating)].map((_, i) => (
@@ -303,18 +294,6 @@ const Testimonials = () => {
           ))}
         </div>
       </motion.div>
-
-      {/* Background Pattern 
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, #0066ff 1px, transparent 0)`,
-            backgroundSize: "40px 40px",
-          }}
-        />
-      </div>
-      */}
     </section>
   );
 };
