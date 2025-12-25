@@ -99,7 +99,7 @@ const HeroServicesWrapper = () => {
       {/* Hero Section with Sunrise Background */}
       <section
         ref={heroRef}
-        className="relative min-h-[200vh] overflow-visible"
+        className="relative min-h-[200vh] overflow-hidden"
       >
         {/* Fixed Hero Background - stays in place while content scrolls */}
         <div className="sticky top-0 h-screen overflow-hidden">
@@ -150,7 +150,7 @@ const HeroServicesWrapper = () => {
 
               {/* Secondary warm glow - creates depth */}
               <motion.div
-                className="absolute left-1/2 bottom-[-20%] -translate-x-1/2 w-[120vw] h-[60vh] rounded-full pointer-events-none"
+                className="absolute left-1/2 bottom-[-20%] -translate-x-1/2 w-full h-[60vh] rounded-full pointer-events-none"
                 style={{
                   background: `radial-gradient(ellipse,
                     rgba(255, 153, 0, 0.8) 0%,
