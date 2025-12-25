@@ -18,7 +18,7 @@ export default function FinalCTA() {
     offset: ["start end", "end start"],
   });
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "0%"]);
   const sunScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 1.2]);
 
   // Floating shapes data
@@ -45,10 +45,10 @@ export default function FinalCTA() {
           className="absolute inset-0"
         >
           {/* Deep sky gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-electric/20 via-sky/10 to-gray-950" />
+          <div className="absolute inset-0 bg-gradient-to-b from-electric via-sky/30 to-transparent" />
 
           {/* Warm sunset layer */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-fanta/30 via-coral/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-fanta/50 via-coral/20 to-transparent" />
 
           {/* Additional color wash */}
           <div className="absolute inset-0 bg-gradient-to-bl from-electric/20 via-transparent to-fanta/20" />
@@ -76,11 +76,7 @@ export default function FinalCTA() {
           floatingShapes.map((shape, index) => (
             <motion.div
               key={index}
-              className={`absolute rounded-full opacity-20 blur-sm
-                ${shape.color === "fanta" ? "bg-fanta" : ""}
-                ${shape.color === "electric" ? "bg-electric" : ""}
-                ${shape.color === "coral" ? "bg-coral" : ""}
-                ${shape.color === "sky" ? "bg-sky" : ""}
+              className={`absolute rounded-full opacity-20 blur-sm bg-${shape.color}
               `}
               style={{
                 width: shape.size,

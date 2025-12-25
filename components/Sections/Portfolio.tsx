@@ -151,7 +151,7 @@ const PortfolioCard = ({
           className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${
             item.gradient
           } p-[2px] h-full shadow-xl transition-shadow duration-500 ${
-            isHovered ? "shadow-2xl shadow-electric/20" : ""
+            isHovered ? `shadow-2xl shadow-${item.accentColor}/20` : ""
           }`}
         >
           {/* Inner card */}
@@ -445,7 +445,7 @@ const Portfolio = () => {
         "AI-powered health platform with workout planning, nutrition tracking, and integration with wearable devices.",
       image: "/api/placeholder/600/400",
       gradient: "from-emerald-500 via-teal-500 to-emerald-500/80",
-      accentColor: "emerald",
+      accentColor: "emerald-500",
       tags: ["React Native", "AI/ML", "Health", "Mobile"],
       results: [
         {

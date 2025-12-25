@@ -118,7 +118,8 @@ const Services = () => {
           <div
             className="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[400px] rounded-full blur-3xl"
             style={{
-              background: "radial-gradient(ellipse, rgba(255, 153, 0, 0.15) 0%, rgba(255, 180, 120, 0.08) 50%, transparent 80%)",
+              background:
+                "radial-gradient(ellipse, rgba(255, 153, 0, 0.15) 0%, rgba(255, 180, 120, 0.08) 50%, transparent 80%)",
             }}
           />
 
@@ -126,7 +127,8 @@ const Services = () => {
           <div
             className="absolute bottom-20 right-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-30"
             style={{
-              background: "radial-gradient(circle, rgba(0, 102, 255, 0.15) 0%, transparent 70%)",
+              background:
+                "radial-gradient(circle, rgba(0, 102, 255, 0.15) 0%, transparent 70%)",
             }}
           />
 
@@ -134,7 +136,8 @@ const Services = () => {
           <div
             className="absolute bottom-10 left-10 w-[400px] h-[400px] rounded-full blur-3xl opacity-25"
             style={{
-              background: "radial-gradient(circle, rgba(255, 107, 107, 0.2) 0%, transparent 70%)",
+              background:
+                "radial-gradient(circle, rgba(255, 107, 107, 0.2) 0%, transparent 70%)",
             }}
           />
         </motion.div>
@@ -147,8 +150,8 @@ const Services = () => {
                 key={i}
                 className="absolute rounded-full"
                 style={{
-                  left: `${15 + (i * 17) % 70}%`,
-                  top: `${20 + (i * 13) % 60}%`,
+                  left: `${15 + ((i * 17) % 70)}%`,
+                  top: `${20 + ((i * 13) % 60)}%`,
                   width: `${4 + (i % 3) * 2}px`,
                   height: `${4 + (i % 3) * 2}px`,
                   background:

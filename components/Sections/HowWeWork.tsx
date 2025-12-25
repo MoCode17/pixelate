@@ -242,7 +242,7 @@ export default function HowWeWork() {
     offset: ["start end", "end start"],
   });
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "0%"]);
   const sunPosition = useTransform(scrollYProgress, [0, 1], ["100%", "20%"]);
 
   return (
