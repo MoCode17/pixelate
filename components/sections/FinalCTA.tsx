@@ -8,9 +8,11 @@ import {
   useReducedMotion,
 } from "framer-motion";
 import { ArrowRight, Sparkles, MessageCircle, FolderOpen } from "lucide-react";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 export default function FinalCTA() {
   const prefersReducedMotion = useReducedMotion();
+  const isMobile = useIsMobile();
   const sectionRef = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -71,8 +73,8 @@ export default function FinalCTA() {
           <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-fanta/20 via-coral/10 to-transparent" />
         </motion.div>
 
-        {/* Floating geometric shapes */}
-        {!prefersReducedMotion &&
+        {/* Floating geometric shapes - disabled on mobile */}
+        {!prefersReducedMotion && !isMobile &&
           floatingShapes.map((shape, index) => (
             <motion.div
               key={index}
@@ -98,8 +100,8 @@ export default function FinalCTA() {
             />
           ))}
 
-        {/* Animated particles */}
-        {!prefersReducedMotion && (
+        {/* Animated particles - disabled on mobile */}
+        {!prefersReducedMotion && !isMobile && (
           <div className="absolute inset-0">
             {[...Array(30)].map((_, i) => (
               <motion.div

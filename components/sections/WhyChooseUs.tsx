@@ -12,6 +12,7 @@ import {
   Sparkles,
   ArrowRight,
 } from "lucide-react";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 interface Differentiator {
   id: number;
@@ -28,6 +29,7 @@ interface Differentiator {
 
 const WhyChooseUs = () => {
   const prefersReducedMotion = useReducedMotion();
+  const isMobile = useIsMobile();
 
   const differentiators: Differentiator[] = [
     {
@@ -148,8 +150,8 @@ const WhyChooseUs = () => {
 
   return (
     <section className="relative bg-gray-950 py-24 md:py-32 overflow-hidden">
-      {/* Animated Background Elements */}
-      {!prefersReducedMotion && (
+      {/* Animated Background Elements - disabled on mobile */}
+      {!prefersReducedMotion && !isMobile && (
         <>
           {/* Large gradient orbs */}
           <motion.div
