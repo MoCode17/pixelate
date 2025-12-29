@@ -4,9 +4,11 @@ import React, { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import ClientHero from "../UI/ClientHero";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const Hero = () => {
   const prefersReducedMotion = useReducedMotion();
+  const isMobile = useIsMobile();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -59,8 +61,8 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex justify-center overflow-hidden bg-gradient-to-b from-[#3399FF]/62 from-40% to-[#EEF1FF]/62 to-75%">
-      {/* Animated Background Elements */}
-      {!prefersReducedMotion && mounted && (
+      {/* Animated Background Elements - disabled on mobile */}
+      {!prefersReducedMotion && mounted && !isMobile && (
         <>
           {/* Gradient Orbs */}
 

@@ -18,6 +18,7 @@ import {
   Layers,
   ArrowRight,
 } from "lucide-react";
+import { useIsMobile, useIsTouchDevice } from "@/hooks/useIsMobile";
 
 interface PortfolioItem {
   id: number;
@@ -90,6 +91,7 @@ const PortfolioCard = ({
   onHover,
   onLeave,
   prefersReducedMotion,
+  isTouchDevice,
 }: {
   item: PortfolioItem;
   className?: string;
@@ -97,6 +99,7 @@ const PortfolioCard = ({
   onHover: () => void;
   onLeave: () => void;
   prefersReducedMotion: boolean | null;
+  isTouchDevice: boolean;
 }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -108,7 +111,8 @@ const PortfolioCard = ({
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-5deg", "5deg"]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (prefersReducedMotion) return;
+    // Disable mouse tracking on touch devices and when reduced motion is preferred
+    if (prefersReducedMotion || isTouchDevice) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -140,8 +144,8 @@ const PortfolioCard = ({
     >
       <motion.div
         style={{
-          rotateX: prefersReducedMotion ? 0 : rotateX,
-          rotateY: prefersReducedMotion ? 0 : rotateY,
+          rotateX: prefersReducedMotion || isTouchDevice ? 0 : rotateX,
+          rotateY: prefersReducedMotion || isTouchDevice ? 0 : rotateY,
           transformStyle: "preserve-3d",
         }}
         className="relative h-full"
@@ -327,6 +331,8 @@ const PortfolioCard = ({
 
 const Portfolio = () => {
   const prefersReducedMotion = useReducedMotion();
+  const isMobile = useIsMobile();
+  const isTouchDevice = useIsTouchDevice();
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   const portfolioItems: PortfolioItem[] = [
@@ -548,8 +554,8 @@ const Portfolio = () => {
 
   return (
     <section className="relative bg-gray-950 py-24 md:py-32 overflow-x-clip">
-      {/* Animated background elements */}
-      {!prefersReducedMotion && (
+      {/* Animated background elements - disabled on mobile */}
+      {!prefersReducedMotion && !isMobile && (
         <>
           {/* Large gradient orbs */}
           <motion.div
@@ -695,6 +701,7 @@ const Portfolio = () => {
               onHover={() => setHoveredId(featuredItem.id)}
               onLeave={() => setHoveredId(null)}
               prefersReducedMotion={prefersReducedMotion}
+              isTouchDevice={isTouchDevice}
             />
           </motion.div>
         )}
@@ -715,6 +722,7 @@ const Portfolio = () => {
               onHover={() => setHoveredId(item.id)}
               onLeave={() => setHoveredId(null)}
               prefersReducedMotion={prefersReducedMotion}
+              isTouchDevice={isTouchDevice}
             />
           ))}
         </motion.div>

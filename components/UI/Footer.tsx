@@ -4,9 +4,11 @@ import { Phone, Mail, Clock, Star } from "lucide-react";
 import Image from "next/image";
 import pixelateLite from "@/public/images/PixelateLogoBlue.svg";
 import { motion, useReducedMotion } from "framer-motion";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const Footer = () => {
   const prefersReducedMotion = useReducedMotion();
+  const isMobile = useIsMobile();
 
   return (
     <footer className="relative bg-gradient-to-b from-gray-950 to-gray-900 text-white py-16 overflow-hidden">
@@ -19,8 +21,8 @@ const Footer = () => {
         <div className="absolute top-1/3 left-1/4 w-[400px] h-[300px] bg-gradient-radial from-amber-500/5 via-orange-500/3 to-transparent blur-3xl rounded-full" />
         <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[250px] bg-gradient-radial from-orange-500/5 via-amber-500/3 to-transparent blur-3xl rounded-full" />
 
-        {/* Stars */}
-        {!prefersReducedMotion && (
+        {/* Stars - disabled on mobile */}
+        {!prefersReducedMotion && !isMobile && (
           <div className="absolute inset-0">
             {[...Array(20)].map((_, i) => (
               <motion.div
@@ -47,8 +49,8 @@ const Footer = () => {
           </div>
         )}
 
-        {/* Static stars for reduced motion */}
-        {prefersReducedMotion && (
+        {/* Static stars for reduced motion or mobile */}
+        {(prefersReducedMotion || isMobile) && (
           <div className="absolute inset-0">
             {[...Array(15)].map((_, i) => (
               <div

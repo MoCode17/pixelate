@@ -10,9 +10,11 @@ import {
 } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import Services from "./Services";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const HeroServicesWrapper = () => {
   const prefersReducedMotion = useReducedMotion();
+  const isMobile = useIsMobile();
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -144,7 +146,7 @@ const HeroServicesWrapper = () => {
                   scale: sunScale,
                   y: sunY,
                   opacity: sunOpacity,
-                  filter: "blur(60px)",
+                  filter: isMobile ? "blur(15px)" : "blur(60px)",
                 }}
               />
 
@@ -159,50 +161,54 @@ const HeroServicesWrapper = () => {
                   )`,
                   scale: orbScale,
                   y: orbY1,
-                  filter: "blur(100px)",
+                  filter: isMobile ? "blur(25px)" : "blur(100px)",
                 }}
               />
 
-              {/* Coral accent orb - right side */}
-              <motion.div
-                className="absolute bottom-20 right-10 w-96 h-96 rounded-full pointer-events-none"
-                style={{
-                  background: "rgba(255, 107, 107, 0.3)",
-                  y: orbY2,
-                  filter: "blur(80px)",
-                }}
-                animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.2, 0.4, 0.2],
-                }}
-                transition={{
-                  duration: 10,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
-              />
+              {/* Coral accent orb - right side - disabled on mobile */}
+              {!isMobile && (
+                <motion.div
+                  className="absolute bottom-20 right-10 w-96 h-96 rounded-full pointer-events-none"
+                  style={{
+                    background: "rgba(255, 107, 107, 0.3)",
+                    y: orbY2,
+                    filter: "blur(80px)",
+                  }}
+                  animate={{
+                    scale: [1, 1.3, 1],
+                    opacity: [0.2, 0.4, 0.2],
+                  }}
+                  transition={{
+                    duration: 10,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1,
+                  }}
+                />
+              )}
 
-              {/* Electric blue accent - left side for contrast */}
-              <motion.div
-                className="absolute top-20 left-10 w-72 h-72 rounded-full pointer-events-none"
-                style={{
-                  background: "rgba(51, 153, 255, 0.2)",
-                  filter: "blur(60px)",
-                }}
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.15, 0.3, 0.15],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
+              {/* Electric blue accent - left side for contrast - disabled on mobile */}
+              {!isMobile && (
+                <motion.div
+                  className="absolute top-20 left-10 w-72 h-72 rounded-full pointer-events-none"
+                  style={{
+                    background: "rgba(51, 153, 255, 0.2)",
+                    filter: "blur(60px)",
+                  }}
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0.15, 0.3, 0.15],
+                  }}
+                  transition={{
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+              )}
 
-              {/* Floating particles */}
-              {[...Array(12)].map((_, i) => (
+              {/* Floating particles - disabled on mobile */}
+              {!isMobile && [...Array(12)].map((_, i) => (
                 <motion.div
                   key={i}
                   className="absolute rounded-full pointer-events-none"
