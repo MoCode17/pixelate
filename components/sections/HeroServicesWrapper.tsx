@@ -32,8 +32,8 @@ const HeroServicesWrapper = () => {
   });
 
   // Sun expansion - starts small at bottom, expands to fill screen
-  const sunScale = useTransform(smoothProgress, [0, 0.3], [1, 3.5]);
-  const sunY = useTransform(smoothProgress, [0, 0.3], ["70%", "-40%"]);
+  const sunScale = useTransform(smoothProgress, [0, 0.3], [1, 4.5]);
+  const sunY = useTransform(smoothProgress, [0, 0.3], ["70%", "-300%"]);
   const sunOpacity = useTransform(
     smoothProgress,
     [0, 0.15, 0.35],
@@ -99,10 +99,7 @@ const HeroServicesWrapper = () => {
   return (
     <div ref={containerRef} className="relative">
       {/* Hero Section with Sunrise Background */}
-      <section
-        ref={heroRef}
-        className="relative min-h-[200vh] overflow-hidden"
-      >
+      <section ref={heroRef} className="relative min-h-[100vh] overflow-hidden">
         {/* Fixed Hero Background - stays in place while content scrolls */}
         <div className="sticky top-0 h-screen overflow-hidden">
           {/* Base sky gradient - transitions from blue to warm sunrise */}
@@ -208,36 +205,37 @@ const HeroServicesWrapper = () => {
               )}
 
               {/* Floating particles - disabled on mobile */}
-              {!isMobile && [...Array(12)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute rounded-full pointer-events-none"
-                  style={{
-                    top: `${15 + ((i * 7) % 60)}%`,
-                    left: `${8 + ((i * 13) % 80)}%`,
-                    width: `${3 + (i % 3) * 2}px`,
-                    height: `${3 + (i % 3) * 2}px`,
-                    background:
-                      i % 3 === 0
-                        ? "rgba(255, 153, 0, 0.6)"
-                        : i % 3 === 1
-                        ? "rgba(0, 102, 255, 0.4)"
-                        : "rgba(255, 107, 107, 0.5)",
-                    boxShadow:
-                      i % 3 === 0
-                        ? "0 0 10px rgba(255, 153, 0, 0.4)"
-                        : i % 3 === 1
-                        ? "0 0 10px rgba(0, 102, 255, 0.3)"
-                        : "0 0 10px rgba(255, 107, 107, 0.3)",
-                  }}
-                  variants={floatingVariants}
-                  animate="animate"
-                  transition={{
-                    delay: i * 0.3,
-                    duration: 3 + (i % 3),
-                  }}
-                />
-              ))}
+              {!isMobile &&
+                [...Array(12)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute rounded-full pointer-events-none"
+                    style={{
+                      top: `${15 + ((i * 7) % 60)}%`,
+                      left: `${8 + ((i * 13) % 80)}%`,
+                      width: `${3 + (i % 3) * 2}px`,
+                      height: `${3 + (i % 3) * 2}px`,
+                      background:
+                        i % 3 === 0
+                          ? "rgba(255, 153, 0, 0.6)"
+                          : i % 3 === 1
+                          ? "rgba(0, 102, 255, 0.4)"
+                          : "rgba(255, 107, 107, 0.5)",
+                      boxShadow:
+                        i % 3 === 0
+                          ? "0 0 10px rgba(255, 153, 0, 0.4)"
+                          : i % 3 === 1
+                          ? "0 0 10px rgba(0, 102, 255, 0.3)"
+                          : "0 0 10px rgba(255, 107, 107, 0.3)",
+                    }}
+                    variants={floatingVariants}
+                    animate="animate"
+                    transition={{
+                      delay: i * 0.3,
+                      duration: 3 + (i % 3),
+                    }}
+                  />
+                ))}
             </>
           )}
 

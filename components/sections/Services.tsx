@@ -39,7 +39,7 @@ const Services = () => {
     offset: ["start end", "end start"],
   });
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "7%"]);
 
   const services: Service[] = [
     {
@@ -257,12 +257,9 @@ const Services = () => {
 
         {/* Services Cards - Sticky on desktop, stacked on mobile */}
         <div className="relative">
-          <div className="flex flex-col gap-6 md:gap-0">
+          <div className="flex flex-col gap-6 md:gap-8">
             {services.map((service, index) => (
-              <div
-                key={service.id}
-                className={`sticky flex items-start justify-center h-[100vh] md:h-[60vh] top-[100px]`}
-              >
+              <div key={service.id} className={`sticky h-[200vh]  top-0`}>
                 <motion.div
                   className="w-full"
                   initial={
