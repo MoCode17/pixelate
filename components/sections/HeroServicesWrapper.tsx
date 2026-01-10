@@ -283,7 +283,7 @@ const HeroServicesWrapper = () => {
               {/* Subheadline */}
               <motion.p
                 {...animationProps}
-                className="text-lg md:text-xl text-gray-800 mb-4 max-w-3xl mx-auto leading-relaxed"
+                className="text-lg md:text-xl text-gray-800 mb-12 max-w-3xl mx-auto leading-relaxed"
               >
                 Melbourne's favourite design agency creating{" "}
                 <span className="font-semibold text-electric">
@@ -348,13 +348,13 @@ const HeroServicesWrapper = () => {
                     ease: "easeInOut",
                   }}
                 >
-                  <div className="flex flex-col items-center gap-2">
-                    <span className="text-sm text-gray-500 font-medium">
+                  <div className="flex flex-col items-center gap-2 z-50">
+                    <span className="text-md text-electric font-semibold">
                       Scroll to explore
                     </span>
-                    <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center p-2">
+                    <div className="w-6 h-10 border-2 border-electric rounded-full flex justify-center p-2">
                       <motion.div
-                        className="w-1.5 h-1.5 bg-fanta rounded-full"
+                        className="w-1.5 h-1.5 bg-electric rounded-full"
                         animate={{
                           y: [0, 12, 0],
                         }}
@@ -376,13 +376,13 @@ const HeroServicesWrapper = () => {
       {/* Services Section - rises smoothly over the hero */}
       <section className="relative z-20">
         {/* Gradient transition overlay - blends hero into services */}
-        <div
+        {/* <div
           className="absolute -top-40 left-0 right-0 h-40 pointer-events-none"
           style={{
             background:
               "linear-gradient(to bottom, transparent 0%, rgba(255, 250, 245, 0.8) 50%, rgb(255, 252, 250) 100%)",
           }}
-        />
+        /> */}
         <Services />
       </section>
     </div>

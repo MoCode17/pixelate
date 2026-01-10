@@ -32,15 +32,6 @@ interface Service {
 
 const Services = () => {
   const prefersReducedMotion = useReducedMotion();
-  const sectionRef = useRef<HTMLElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "7%"]);
-
   const services: Service[] = [
     {
       id: 1,
@@ -100,17 +91,13 @@ const Services = () => {
 
   return (
     <section
-      ref={sectionRef}
-      className="relative py-24 md:py-32"
+      className="relative py-8 md:py-12"
       aria-labelledby="services-heading"
     >
       {/* Seamless Sunrise Background - continues from Hero */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#fffcfa] via-[#fff8f2] to-white">
         {/* Animated gradient layers */}
-        <motion.div
-          style={{ y: prefersReducedMotion ? 0 : backgroundY }}
-          className="absolute inset-0"
-        >
+        <motion.div className="absolute inset-0">
           {/* Warm ambient glow - top */}
           <div className="absolute top-0 left-0 right-0 h-[50%] bg-gradient-to-b from-fanta/8 via-coral/5 to-transparent" />
 
@@ -257,9 +244,9 @@ const Services = () => {
 
         {/* Services Cards - Sticky on desktop, stacked on mobile */}
         <div className="relative">
-          <div className="flex flex-col gap-6 md:gap-8">
+          <div className="relative flex flex-col gap-6 md:gap-8">
             {services.map((service, index) => (
-              <div key={service.id} className={`sticky h-[200vh]  top-0`}>
+              <div key={service.id} className={`sticky h-[100vh] top-0`}>
                 <motion.div
                   className="w-full"
                   initial={
