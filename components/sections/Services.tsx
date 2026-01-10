@@ -242,11 +242,18 @@ const Services = () => {
           </motion.p>
         </motion.div>
 
-        {/* Services Cards - Sticky on desktop, stacked on mobile */}
-        <div className="relative">
+        {/* Services Cards - Sticky stacking on desktop, normal stack on mobile */}
+        <div className="relative pb-20 md:pb-40">
           <div className="relative flex flex-col gap-6 md:gap-8">
             {services.map((service, index) => (
-              <div key={service.id} className={`sticky h-[100vh] top-0`}>
+              <div
+                key={service.id}
+                className="md:sticky"
+                style={{
+                  top: `${80 + index * 40}px`,
+                  zIndex: 10 + index,
+                }}
+              >
                 <motion.div
                   className="w-full"
                   initial={
